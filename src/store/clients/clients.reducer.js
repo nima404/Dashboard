@@ -1,6 +1,7 @@
 import { ADD_CLIENT, DELETE_CLIENT, EDIT_CLIENT } from "./clients.constans";
+import { initialState } from "./clients.initial";
 
-export function clientReducer(state, action) {
+export function clientReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_CLIENT:
 
