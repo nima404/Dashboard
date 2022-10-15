@@ -1,8 +1,11 @@
 import "./App.css";
 import { Dashboard } from "./components/Dashboard";
+import { ThemeContextProvider } from "./context/themeContext";
 function App() {
   return <div className="App">
-    <Dashboard />
+    <ThemeContextProvider>
+      <Dashboard />
+    </ThemeContextProvider>
   </div>;
 }
 

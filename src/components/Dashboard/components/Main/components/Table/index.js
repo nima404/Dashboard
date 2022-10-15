@@ -1,8 +1,10 @@
+import { useTheme } from "../../../../../../hooks/useTheme/useTheme";
 import styles from "./table.module.css";
 export function Table() {
+  const [theme, toggle] = useTheme()
   return (
     <div className={styles.table_container}>
-      <table class="table table-hover  table-striped table-ligth" dir="rtl">
+      <table className={`table table-hover table-striped ${theme === "dark" ? "table-dark" : 'table-light'}`} dir="rtl">
         <thead>
           <tr>
             <th scope="col">#</th>

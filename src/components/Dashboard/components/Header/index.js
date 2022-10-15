@@ -1,9 +1,10 @@
-import { useTheme } from "../../../../hooks/useTheme/useTheme"
+import { useContext } from "react"
+import { ThemeContext } from "../../../../context/themeContext"
 import styles from "./style.module.css"
 
 export const Header = () => {
 
-    const [theme, toggle] = useTheme()
+    const { toggle, theme } = useContext(ThemeContext);
 
     return (
         <header className={styles.header_style} dir="rtl">
