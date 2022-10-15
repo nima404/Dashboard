@@ -9,4 +9,5 @@ body{
 .dashboard {
   width: 75%;
   font-family: "Vazir-FD";
+  min-height: 100vh;
 }

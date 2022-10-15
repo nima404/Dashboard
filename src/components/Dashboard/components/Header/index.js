@@ -23,7 +23,7 @@ export const Header = () => {
 
                 <div className={`${styles.option_Style}`}>
                     <button className={styles.optionStyle_button} onClick={() => toggle()}>
-                        <i className={`bi ${theme == "light" ? "bi-lightning-charge-fill" : "bi-lightning-charge"} ${styles.icon_style}`}></i>
+                        <i className={`bi ${theme === "light" ? "bi-lightning-charge-fill" : "bi-lightning-charge"} ${styles.icon_style}`}></i>
                     </button>
                 </div>
 

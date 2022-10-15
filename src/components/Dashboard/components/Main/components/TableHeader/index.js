@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
 import { useState } from "react";
+import { FloatingLabelInput } from "../FloatingLabelInput";
 
 export function TableHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,12 +15,11 @@ export function TableHeader() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  console.log(isModalOpen);
   return (
     <div className={styles.table_header}>
       <>
         <button className={styles.add_btn} onClick={showModal}>
-          + add client
+          + افزوردن کاربر
         </button>
         <Modal
           title="Basic Modal"
@@ -27,13 +27,12 @@ export function TableHeader() {
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <p>Some contents...</p>
+          <FloatingLabelInput />
           <p>Some contents...</p>
           <p>Some contents...</p>
         </Modal>
       </>
-      <h3>Clients</h3>
-
+      <h3>لیست کاربران</h3>
     </div>
   );
 }
