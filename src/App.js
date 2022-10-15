@@ -1,10 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Header } from "./components/Dashboard/components/Header";
+import { Dashboard } from "./components/Dashboard";
 function App() {
-  return <div className="App">
-    <Header /> 
-  </div>;
+  return (
+    <div className="App">
+      <Dashboard />
+    </div>
+  );
 }
 
 export default App;

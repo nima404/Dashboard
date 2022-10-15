@@ -1,8 +1,7 @@
-import styles from "./style.module.css";
-
+import styles from "./table.module.css";
 export function Table() {
   return (
-    <div className={styles.table_container}>
+    <div>
       <table class="table table-striped table-dark" dir="rtl">
         <thead>
           <tr>
