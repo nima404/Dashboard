@@ -1,0 +1,125 @@
+* {
+    list-style-type: none !important;
+    font-family: "Vazir-FD" !important;
+}
+
+@font-face {
+    font-family: "Vazir-FD";
+    src: url("../../../../assets/font/Vazir-FD.woff") format("woff");
+}
+
+.sidbar_style {
+    position: relative;
+    width: 100%;
+    background: rgb(0, 0, 46);
+    min-height: 100vh;
+    box-shadow: -20px 0px 20px 0px #e7e7e7;
+    /* transition: width 3s; */
+}
+
+.close_sidbar_style {
+    position: relative;
+    width: 100%;
+    background: rgb(0, 0, 46);
+    min-height: 100vh;
+    box-shadow: -20px 0px 20px 0px #e7e7e7;
+    transition: width 2s;
+}
+
+.sidebar_toggle_button_style {
+    position: absolute;
+    top: 400px;
+    left: 0%;
+    background: rgb(0, 0, 46);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar_header_style {
+    color: white;
+    text-align: center;
+    padding: 30px 0 0 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.sidebar_title {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar_footer_style {
+    position: fixed;
+    bottom: 0;
+    color: white;
+    background: rgb(0, 0, 40);
+    padding: 5px;
+    width: 20%;
+}
+
+.sidebar_paragraf {
+    margin: 0;
+    padding: 5px;
+}
+
+.side_button_style {
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.listItem_button_style {
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItem_style {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 10px;
+    color: white;
+    margin-top: 15px;
+}
+
+.listItem_style_actice {
+    background: rgb(0, 0, 40);
+}
+
+.sidebar_main_style {
+    margin: 30px 0 0 0;
+}
+
+.listItem_button_paragraf_style {
+    margin: 0 10px 0 0;
+    font-weight: bold;
+}
+
+.icon_style {
+    font-size: 25px;
+}
+
+.listItem_parent {
+    padding: 0;
+}
+
+.close_sidebar {
+    visibility: hidden;
+}

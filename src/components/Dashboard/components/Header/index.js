@@ -9,7 +9,7 @@ export const Header = () => {
     return (
         <header className={styles.header_style} dir="rtl">
 
-            <div className="searchInput_parent">
+            <div className={styles.searchInput_parent}>
                 <input type={"text"} className={styles.searchInput_style} placeholder="جست و جو.." />
             </div>
 

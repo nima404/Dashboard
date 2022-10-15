@@ -3,11 +3,36 @@
   src: url("../../assets/font/Vazir-FD.woff") format("woff");
 }
 
-body{
+body {
   font-family: "Vazir-FD" !important;
 }
+
 .dashboard {
-  width: 75%;
+  width: 80%;
   font-family: "Vazir-FD";
   min-height: 100vh;
+}
+
+.dashboard_false {
+  width: 96.5%;
+  min-height: 100vh;
+  transition: width 2s;
+}
+
+.Sidebar {
+  width: 20%;
+  min-height: 100vh;
+}
+
+.Sidebar_false {
+  width: 3.5%;
+  transition: width 2s;
+  min-height: 100vh;
+}
+
+.dashboard_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
 }

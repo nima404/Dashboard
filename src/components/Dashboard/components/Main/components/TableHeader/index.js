@@ -1,8 +1,9 @@
 import styles from "./style.module.css";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
+import { SidebarContext } from "../../../../../../context/sidebarContext";
 
 export function TableHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,6 +16,7 @@ export function TableHeader() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div className={styles.table_header}>
       <>

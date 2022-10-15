@@ -4,3 +4,8 @@
   direction: rtl;
   margin: 20px 40px;
 }
+
+table {
+  width: 75% !important;
+  margin: 0 auto;
+}

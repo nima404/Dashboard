@@ -90,3 +90,7 @@
 .userIcon_styles {
   color: white;
 }
+
+.searchInput_parent{
+  width: 50%;
+}
