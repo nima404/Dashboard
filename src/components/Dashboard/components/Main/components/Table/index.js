@@ -1,8 +1,8 @@
 import styles from "./table.module.css";
 export function Table() {
   return (
-    <div>
-      <table class="table table-striped table-dark" dir="rtl">
+    <div className={styles.table_container}>
+      <table class="table table-hover  table-striped table-ligth" dir="rtl">
         <thead>
           <tr>
             <th scope="col">#</th>

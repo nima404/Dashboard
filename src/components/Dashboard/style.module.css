@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Vazir-FD";
+  src: url("../../assets/font/Vazir-FD.woff") format("woff");
+}
+
 .dashboard {
   width: 75%;
+  font-family: "Vazir-FD";
 }

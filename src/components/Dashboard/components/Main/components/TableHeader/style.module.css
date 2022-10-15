@@ -4,4 +4,10 @@
   background-color: black;
   color: white;
   font-weight: 600;
+  margin: 0 20px;
+}
+.table_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }

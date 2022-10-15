@@ -1,4 +1,6 @@
 .table_container {
   border-radius: 10px;
   overflow: hidden;
+  direction: rtl;
+  margin: 20px 40px;
 }
