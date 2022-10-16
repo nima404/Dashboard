@@ -39,26 +39,27 @@ const useStyles = createStyles((theme, { floating }) => ({
 }));
 
 export function FloatingLabelInput({
-  label = "نام",
-  placeholder = "نام خود را وارد کنید",
-  required = false,
+  label = "",
+  placeholder = "",
   changeHandler,
   type,
+  value,
 }) {
+  const data = value;
   const [focused, setFocused] = useState(false);
-  const [value, setValue] = useState("");
   const { classes } = useStyles({
-    floating: value.trim().length !== 0 || focused,
+    floating: data.trim().length !== 0 || focused,
   });
 
   return (
     <TextInput
       label={label}
       placeholder={placeholder}
-      {...(required === true ? required : null)}
+      required
+      type={type}
       classNames={classes}
       value={value}
-      onChange={(event) => setValue(event.target.value)}
+      onChange={(event) => changeHandler(event.target.value)}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       mt="md"

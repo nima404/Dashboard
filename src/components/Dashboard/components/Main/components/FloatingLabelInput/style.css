@@ -2,3 +2,15 @@
   direction: rtl;
   right: 0 !important;
 }
+.mantine-12sbrde {
+  margin-top: 35px;
+}
+/* label */
+.mantine-TextInput-label {
+  left: unset !important;
+  right: 0 !important;
+}
+/* placeholder */
+.mantine-14h1fwz {
+  text-align: right;
+}
