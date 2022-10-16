@@ -91,6 +91,15 @@
   color: white;
 }
 
-.searchInput_parent{
+.searchInput_parent {
   width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e7e7e7;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+.search_btn {
+  font-size: 20px;
 }

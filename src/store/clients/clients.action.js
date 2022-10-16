@@ -7,9 +7,10 @@ export const addClient = (obj) => {
   };
 };
 
-export const deleteClient = () => {
+export const deleteClient = (id) => {
   return {
     type: DELETE_CLIENT,
+    payload: { id },
   };
 };
 

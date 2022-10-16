@@ -7,6 +7,9 @@
   margin: 0 20px;
   border: none;
 }
+.add_btn :hover {
+  background-color: rgb(117, 77, 1);
+}
 
 .table_header {
   display: flex;

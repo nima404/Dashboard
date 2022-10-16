@@ -3,9 +3,24 @@
   overflow: hidden;
   direction: rtl;
   margin: 20px 40px;
+  width: 85%;
+  margin: 0 auto;
 }
 
-table {
-  width: 75% !important;
+.table_st {
+  width: 100% !important;
   margin: 0 auto;
+}
+.delete_btn {
+  border: none;
+  color: red;
+  font-size: 17px;
+  margin-left: 5px;
+  background: none;
+}
+.edit_btn {
+  border: none;
+  color: blue;
+  font-size: 17px;
+  background: none;
 }

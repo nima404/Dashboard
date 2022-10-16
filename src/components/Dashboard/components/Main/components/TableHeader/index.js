@@ -39,10 +39,13 @@ export function TableHeader() {
           + افزوردن کاربر
         </button>
         <Modal
+          style={{ top: 20 }}
           title="اطلاعات کاربر"
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}
+          okText="ثبت"
+          cancelText="انصراف"
         >
           <FloatingLabelInput
             label="نام"

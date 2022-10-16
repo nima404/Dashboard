@@ -5,7 +5,7 @@ export function clientReducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.ADD_CLIENT: {
       const clientsLen = state.clients.length;
-      const lastId = clientsLen > 0 ? state.clients[clientsLen].id + 1 : 1;
+      const lastId = clientsLen > 0 ? state.clients[clientsLen - 1].id + 1 : 1;
       const newclient = { ...action.payload, id: lastId };
       return { clients: [...state.clients, newclient] };
     }
