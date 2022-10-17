@@ -40,16 +40,6 @@
     align-items: center;
 }
 
-.sidebar_header_style {
-    color: darkblue;
-    text-align: center;
-    padding: 30px 0 0 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-}
-
 .sidebar_title {
     margin: 0;
     padding: 0;
@@ -94,6 +84,7 @@
     padding: 8px;
     color: darkblue;
     margin-top: 15px;
+    margin-right: 20px;
 }
 
 .listItem_style:hover {

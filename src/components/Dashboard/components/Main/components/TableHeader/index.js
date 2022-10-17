@@ -9,6 +9,7 @@ import {
   clearCLient,
   editNewClient,
 } from "../../../../../../store/newClient/newClient.action";
+import Fuse from "fuse.js";
 import { addClient } from "../../../../../../store/clients/clients.action";
 
 export function TableHeader() {
@@ -31,12 +32,45 @@ export function TableHeader() {
   const handleOnChangeInputs = (payload) => {
     dispatch(editNewClient(payload));
   };
+
+
+  const [filterClients, setFilterClients] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const filterOptions = {
+    isCaseSensitive: false,
+    includeMatches: true,
+    keys: ["firstName", "lastName", "location"],
+  };
+  const clients = useSelector((state) => state.client.clients);
+  const fuse = new Fuse(clients, filterOptions);
+  function handleSearch() {
+    setFilterClients(fuse.search(searchText));
+  }
+  console.log(filterClients);
+
+
   return (
     <div className={styles.table_header}>
-      <>
+      <div className={styles.titleTableHeader}>
+        <h3 className={styles.title}>لیست کاربران</h3>
+      </div>
+      <div className={styles.header_footer_style}>
         <button className={styles.add_btn} onClick={showModal}>
           + افزوردن کاربر
         </button>
+
+        <div className={styles.searchInput_parent}>
+          <input
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            type={"text"}
+            className={styles.searchInput_style}
+            placeholder="جست و جو.."
+          />
+          <button className={styles.optionStyle_button} onClick={handleSearch}>
+            <i className={`bi bi-search ${styles.search_btn}`}></i>
+          </button>
+        </div>
         <Modal
           style={{ top: 20 }}
           title="اطلاعات کاربر"
@@ -83,8 +117,8 @@ export function TableHeader() {
             changeHandler={(value) => handleOnChangeInputs({ location: value })}
           />
         </Modal>
-      </>
-      <h4 className={styles.title}>لیست کاربران</h4>
+      </div>
+
     </div>
   );
 }

@@ -1,23 +1,77 @@
 .add_btn {
-  padding: 5px 10px;
+  padding: 15px 30px;
   border-radius: 10px;
   background-color: darkblue;
   color: white;
   font-weight: 600;
-  margin: 0 20px;
+  margin: 0 0;
   border: none;
 }
+
 .add_btn :hover {
   background-color: darkblue;
+}
+
+.header_footer_style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.titleTableHeader {
+  text-align: right;
+  width: 100%;
+  display: block;
+  margin: 0 0 10px 0;
 }
 
 .table_header {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title{
+.title {
   font-weight: bold;
+}
+
+.searchInput_parent {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dcdcdc;
+  border-radius: 5px;
+  padding-left: 20px;
+  /* margin: 0 23px 0 0; */
+}
+
+.search_btn {
+  font-size: 15px;
+  border: none;
+}
+
+
+.searchInput_style {
+  background: none;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 0 15px 0 0;
+}
+
+.searchInput_style:focus {
+  outline: none;
+  border: none;
+}
+
+.optionStyle_button {
+  background: none;
+  border: none;
+  position: relative;
 }

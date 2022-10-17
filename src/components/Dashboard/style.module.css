@@ -25,7 +25,7 @@ body {
 }
 
 .Sidebar_false {
-  width: 3.5%;
+  width: 6.5%;
   transition: width 2s;
   min-height: 100vh;
 }

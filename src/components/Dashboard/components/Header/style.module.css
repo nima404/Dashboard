@@ -22,19 +22,10 @@
   width: 28%;
 }
 
-.searchInput_style {
-  background: none;
-  border: none;
-  padding: 15px;
-  background-color: #e7e7e7;
-  border-radius: 5px;
-  width: 100%;
+.sidebar_header_style h4 {
+  color: darkblue;
+  font-weight: bold;
   margin: 0 15px 0 0;
-}
-
-.searchInput_style:focus {
-  outline: none;
-  border: none;
 }
 
 .searchInput_style::placeholder {
@@ -97,6 +88,7 @@
   color: white;
 }
 
+
 .searchInput_parent {
   width: 50%;
   display: flex;
@@ -106,18 +98,4 @@
   border-radius: 5px;
   padding-left: 20px;
   margin: 0 23px 0 0;
-}
-
-.search_btn {
-  font-size: 15px;
-}
-
-
-.notification_massage {
-  position: absolute;
-  bottom: -12px;
-  left: 0px;
-  color: gray;
-  font-size: 9px;
-  display: none;
 }

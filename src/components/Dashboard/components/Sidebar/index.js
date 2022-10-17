@@ -16,12 +16,6 @@ export const Sidebar = () => {
     return (
         <div className={sidebar ? styles.close_sidbar_style : styles.sidbar_style}>
 
-            <div className={sidebar ? styles.close_sidebar : styles.sidebar_header_style}>
-                <i class="bi bi-app"></i>
-                <h3 className={styles.sidebar_title}>DASHBOARD</h3>
-                <i class="bi bi-app"></i>
-            </div>
-
             <br />
 
             <div className={sidebar ? "" : styles.sidebar_main_style}>
@@ -41,7 +35,7 @@ export const Sidebar = () => {
 
             <br />
 
-            <div className={ styles.sidebar_footer_style}>
+            <div className={styles.sidebar_footer_style}>
                 <button className={styles.side_button_style}>
                     <p className={sidebar ? styles.close_sidebar_paragraf : styles.sidebar_paragraf}>SETTING</p>
                     <i class="bi bi-gear"></i>
