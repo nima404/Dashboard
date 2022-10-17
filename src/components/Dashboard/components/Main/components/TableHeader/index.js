@@ -18,6 +18,7 @@ export function TableHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
+    dispatch(clearCLient());
   };
   const handleOk = () => {
     dispatch(addClient(newClient));

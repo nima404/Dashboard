@@ -14,8 +14,9 @@ export const deleteClient = (id) => {
   };
 };
 
-export const editClient = () => {
+export const editClient = (obj) => {
   return {
     type: EDIT_CLIENT,
+    payload: obj,
   };
 };

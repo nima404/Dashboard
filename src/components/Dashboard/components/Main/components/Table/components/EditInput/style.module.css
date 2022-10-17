@@ -1,0 +1,16 @@
+.edit_input {
+  width: 80px;
+}
+.edit_input[type="date"] {
+  width: unset;
+}
+.edit_input::-webkit-outer-spin-button,
+.edit_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.edit_input[type="number"] {
+  -moz-appearance: textfield;
+  width: 40px;
+}
