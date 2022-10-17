@@ -12,9 +12,7 @@ export function Table() {
   return (
     <div className={styles.table_container}>
       <table
-        className={`table table-hover table-striped ${styles.table_st} ${
-          theme === "dark" ? "table-dark" : "table-light"
-        }`}
+        className={`table table-hover table-striped ${styles.table_st} ${styles.table_background}`}
         dir="rtl"
       >
         <thead>
@@ -31,7 +29,7 @@ export function Table() {
         <tbody>
           {clients.map((client, index) => {
             return (
-              <tr key={`${client.id}_${index}`}>
+              <tr key={`${client.id} _${index}`}>
                 <th scope="row">{index + 1}</th>
                 <th scope="col">{client.firstName}</th>
                 <th scope="col">{client.lastName}</th>

@@ -76,7 +76,7 @@ export function TableHeader() {
           />
         </Modal>
       </>
-      <h3>لیست کاربران</h3>
+      <h4 className={styles.title}>لیست کاربران</h4>
     </div>
   );
 }

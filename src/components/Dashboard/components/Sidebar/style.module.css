@@ -11,39 +11,37 @@
 .sidbar_style {
     position: relative;
     width: 100%;
-    background: rgb(0, 0, 46);
+    background: white;
     min-height: 100vh;
-    box-shadow: -20px 0px 20px 0px #e7e7e7;
-    /* transition: width 3s; */
+    box-shadow: -4px 0px 20px 0px #ececec;
 }
 
 .close_sidbar_style {
     position: relative;
     width: 100%;
-    background: rgb(0, 0, 46);
+    background: white;
     min-height: 100vh;
-    box-shadow: -20px 0px 20px 0px #e7e7e7;
-    transition: width 2s;
+    box-shadow: -3px 0px 20px 0px #e7e7e7;
 }
 
 .sidebar_toggle_button_style {
     position: absolute;
     top: 400px;
     left: 0%;
-    background: rgb(0, 0, 46);
     width: 40px;
     height: 40px;
     text-align: center;
     border-radius: 5px;
     border: none;
-    color: white;
+    color: darkblue;
     display: flex;
     justify-content: center;
+    background: none;
     align-items: center;
 }
 
 .sidebar_header_style {
-    color: white;
+    color: darkblue;
     text-align: center;
     padding: 30px 0 0 0;
     display: flex;
@@ -55,17 +53,16 @@
 .sidebar_title {
     margin: 0;
     padding: 0;
-    color: white;
+    color: darkblue;
     font-weight: bold;
 }
 
 .sidebar_footer_style {
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    color: white;
-    background: rgb(0, 0, 40);
-    padding: 5px;
-    width: 20%;
+    color: darkblue;
+    padding: 15px 10px 15px 10px;
+    width: 100%;
 }
 
 .sidebar_paragraf {
@@ -94,13 +91,14 @@
     width: 95%;
     margin: 0 auto;
     border-radius: 6px;
-    padding: 10px;
-    color: white;
+    padding: 8px;
+    color: darkblue;
     margin-top: 15px;
 }
 
-.listItem_style_actice {
-    background: rgb(0, 0, 40);
+.listItem_style:hover {
+    background: darkblue;
+    color: white;
 }
 
 .sidebar_main_style {
@@ -122,4 +120,8 @@
 
 .close_sidebar {
     visibility: hidden;
+}
+
+.close_sidebar_paragraf {
+    display: none;
 }

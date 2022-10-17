@@ -1,14 +1,14 @@
 .add_btn {
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: orange;
+  background-color: darkblue;
   color: white;
   font-weight: 600;
   margin: 0 20px;
   border: none;
 }
 .add_btn :hover {
-  background-color: rgb(117, 77, 1);
+  background-color: darkblue;
 }
 
 .table_header {
@@ -16,4 +16,8 @@
   justify-content: space-between;
   padding: 10px;
   flex-direction: row-reverse;
+}
+
+.title{
+  font-weight: bold;
 }

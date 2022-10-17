@@ -1,10 +1,13 @@
 import { useContext, useState } from "react"
 import { SidebarContext } from "../../../../context/sidebarContext"
+import { ListItem } from "./components/listItem/index"
 import styles from "./style.module.css"
 
 export const Sidebar = () => {
+
     // State
     const { sidebar, toggleSidebar } = useContext(SidebarContext)
+
     // Function's
     const toggleSidebarHandler = () => {
         toggleSidebar(prev => prev = !prev)
@@ -26,39 +29,25 @@ export const Sidebar = () => {
                 <button className={styles.sidebar_toggle_button_style} onClick={() => toggleSidebarHandler()}>{sidebar ? <i class="bi bi-caret-left-fill"></i> : <i class="bi bi-caret-right-fill"></i>}</button>
 
                 <ul className={styles.listItem_parent}>
-                    <li className={`${styles.listItem_style_actice} ${styles.listItem_style}`}>
-                        <button className={styles.listItem_button_style}>
-                            <i class={`bi bi-house ${styles.icon_style}`}></i>
-                            <p className={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style}>داشبورد</p>
-                        </button>
-                    </li>
 
-                    <li className={styles.listItem_style}>
-                        <button className={styles.listItem_button_style}>
-                            <i class={`bi bi-person ${styles.icon_style}`}></i>
-                            <p className={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style}>پروفایل</p>
-                        </button>
-                    </li>
+                    <ListItem listItemClassName={`${styles.listItem_style_actice} ${styles.listItem_style}`} buttonClassName={styles.listItem_button_style} iconClassName={`bi bi-house ${styles.icon_style}`} paragrafClassName={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style} paragrafText="داشبورد" />
 
-                    <li className={styles.listItem_style}>
-                        <button className={styles.listItem_button_style}>
-                            <i class={`bi bi-bell ${styles.icon_style}`}></i>
-                            <p className={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style}>اعلان</p>
-                        </button>
-                    </li>
+                    <ListItem listItemClassName={styles.listItem_style} buttonClassName={styles.listItem_button_style} iconClassName={`bi bi-person ${styles.icon_style}`} paragrafClassName={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style} paragrafText="پروفایل" />
+
+                    <ListItem listItemClassName={styles.listItem_style} buttonClassName={styles.listItem_button_style} iconClassName={`bi bi-bell ${styles.icon_style}`} paragrafClassName={sidebar ? styles.close_sidebar : styles.listItem_button_paragraf_style} paragrafText="اعلان" />
 
                 </ul>
-            </div>
+            </div >
 
             <br />
 
-            <div className={sidebar ? styles.close_sidebar : styles.sidebar_footer_style}>
+            <div className={ styles.sidebar_footer_style}>
                 <button className={styles.side_button_style}>
-                    <p className={styles.sidebar_paragraf}>SETTING</p>
+                    <p className={sidebar ? styles.close_sidebar_paragraf : styles.sidebar_paragraf}>SETTING</p>
                     <i class="bi bi-gear"></i>
                 </button>
             </div>
 
-        </div>
+        </div >
     )
 }

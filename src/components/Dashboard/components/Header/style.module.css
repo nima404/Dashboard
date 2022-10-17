@@ -2,6 +2,7 @@
   font-family: "Vazir-FD";
   src: url("../../../../assets/font/Vazir-FD.woff") format("woff");
 }
+
 * {
   font-family: "Vazir-FD" !important;
 }
@@ -18,7 +19,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 30%;
+  width: 28%;
 }
 
 .searchInput_style {
@@ -47,10 +48,15 @@
 .optionStyle_button {
   background: none;
   border: none;
+  position: relative;
+}
+
+.optionStyle_button:hover .notification_massage {
+  display: block;
 }
 
 .user_style {
-  background: orange;
+  background: darkblue;
   padding: 5px;
   border-radius: 50%;
   width: 35px;
@@ -99,7 +105,19 @@
   background: #e7e7e7;
   border-radius: 5px;
   padding-left: 20px;
+  margin: 0 23px 0 0;
 }
+
 .search_btn {
-  font-size: 20px;
+  font-size: 15px;
+}
+
+
+.notification_massage {
+  position: absolute;
+  bottom: -12px;
+  left: 0px;
+  color: gray;
+  font-size: 9px;
+  display: none;
 }

@@ -2,15 +2,16 @@
   border-radius: 10px;
   overflow: hidden;
   direction: rtl;
-  margin: 20px 40px;
-  width: 85%;
+  width: 70%;
   margin: 0 auto;
+  margin-top: 30px;
 }
 
 .table_st {
   width: 100% !important;
   margin: 0 auto;
 }
+
 .delete_btn {
   border: none;
   color: red;
@@ -18,9 +19,25 @@
   margin-left: 5px;
   background: none;
 }
+
 .edit_btn {
   border: none;
   color: blue;
   font-size: 17px;
   background: none;
+}
+
+.table_background {
+  /* background: darkblue; */
+  color: white;
+  padding: 10px;
+}
+
+th{
+  padding: 12px !important;
+}
+
+tr{
+  background: white !important;
+  color: darkblue !important;
 }
