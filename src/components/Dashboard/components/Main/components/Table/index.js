@@ -5,18 +5,29 @@ import {
   deleteClient,
   editClient,
 } from "../../../../../../store/clients/clients.action";
-import { EditInput } from "./components/EditInput";
+import { ButtonIcon } from "./components/ButtonIcon";
+import { TableRowWithInputs } from "./components/TableRowWithInputs";
 import styles from "./table.module.css";
 export function Table() {
   const [theme, toggle] = useTheme();
   const [editedClient, setEditedClient] = useState();
   const clients = useSelector((state) => state.client.clients);
+  const tableHeader = [
+    "#",
+    "نام",
+    "نام خانوادگی",
+    "تاریخ تولد",
+    "سن",
+    "قد",
+    "محل سکونت",
+    "عملیات",
+  ];
   const initialEditedClient = {
     firstName: "",
     lastName: "",
+    birthdate: "",
     age: "",
     height: "",
-    birthdate: "",
     location: "",
   };
   const [editedData, setEditedData] = useState(initialEditedClient);
@@ -28,18 +39,7 @@ export function Table() {
     setEditedClient(client.id);
     setEditedData(client);
   }
-  function handleOnChangeInputs(obj) {
-    setEditedData((prev) => {
-      return { ...prev, ...obj };
-    });
-  }
-  function handleSubmitEdite() {
-    dispatch(editClient(editedData));
-    setEditedClient();
-  }
-  function handleCancelEdite() {
-    setEditedClient();
-  }
+
   return (
     <div className={styles.table_container}>
       <table
@@ -48,98 +48,32 @@ export function Table() {
       >
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">نام</th>
-            <th scope="col">نام خانوادگی</th>
-            <th scope="col">تاریخ تولد</th>
-            <th scope="col">سن </th>
-            <th scope="col">قد</th>
-            <th scope="col">محل سکونت</th>
-            <th scope="col">عملیات</th>
+            {tableHeader.map((item) => (
+              <th scope="col" key={`${item}`}>
+                {item}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {clients.length === 0 ? (
             <tr>
-              <th className="text-center" colspan="8">
+              <th className="text-center" colSpan="8">
                 هنوز کاربری اضافه نشده است{" "}
               </th>
             </tr>
           ) : (
             clients.map((client, index) => {
               return client.id === editedClient ? (
-                <tr key={`${client.id}_${index}`}>
-                  <th scope="row">{index + 1}</th>
-                  <th scope="col">
-                    <EditInput
-                      value={editedData.firstName}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ firstName: val })
-                      }
-                    />
-                  </th>
-                  <th scope="col">
-                    <EditInput
-                      value={editedData.lastName}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ lastName: val })
-                      }
-                    />
-                  </th>
-                  <th scope="col">
-                    <EditInput
-                      type={"date"}
-                      value={editedData.birthdate}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ birthdate: val })
-                      }
-                    />
-                  </th>
-                  <th scope="col">
-                    <EditInput
-                      value={editedData.age}
-                      type={"number"}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ age: val })
-                      }
-                    />
-                  </th>
-                  <th scope="col">
-                    <EditInput
-                      type={"number"}
-                      value={editedData.height}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ height: val })
-                      }
-                    />
-                  </th>
-                  <th scope="col">
-                    <EditInput
-                      value={editedData.location}
-                      handleOnChange={(val) =>
-                        handleOnChangeInputs({ location: val })
-                      }
-                    />
-                  </th>
-                  <th>
-                    <button
-                      title="Delete client"
-                      className={styles.delete_btn}
-                      onClick={handleCancelEdite}
-                    >
-                      <i class="bi bi-x-lg"></i>
-                    </button>
-                    <button
-                      className={styles.edit_btn}
-                      onClick={handleSubmitEdite}
-                    >
-                      <i class="bi bi-check-lg"></i>
-                    </button>
-                  </th>
-                </tr>
+                <TableRowWithInputs
+                  key={`${index}_edited`}
+                  edited={{ editedData, setEditedData }}
+                  index={index}
+                  setEditedClient={setEditedClient}
+                />
               ) : (
                 <tr key={`${client.id}_${index}`}>
-                  <th scope="row">{index + 1}</th>
+                  <th scope="col">{index + 1}</th>
                   <th scope="col">{client.firstName}</th>
                   <th scope="col">{client.lastName}</th>
                   <th scope="col">{client.birthdate}</th>
@@ -147,19 +81,18 @@ export function Table() {
                   <th scope="col">{client.height}</th>
                   <th scope="col">{client.location}</th>
                   <th>
-                    <button
-                      title="Delete client"
-                      className={styles.delete_btn}
-                      onClick={() => handleDeleteClient(client.id)}
-                    >
-                      <i className="bi bi-trash3"></i>
-                    </button>
-                    <button
-                      className={styles.edit_btn}
-                      onClick={() => handleEditeClient(client)}
-                    >
-                      <i className="bi bi-pencil-square"></i>
-                    </button>
+                    <ButtonIcon
+                      title={"Delete client"}
+                      icon={"trash3"}
+                      handleClick={() => handleDeleteClient(client.id)}
+                      className={"delete_btn"}
+                    />
+                    <ButtonIcon
+                      title={"Edit client"}
+                      icon={"pencil-square"}
+                      handleClick={() => handleEditeClient(client)}
+                      className={"edit_btn"}
+                    />
                   </th>
                 </tr>
               );

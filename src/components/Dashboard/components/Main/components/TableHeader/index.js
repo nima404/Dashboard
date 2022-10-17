@@ -16,6 +16,13 @@ export function TableHeader() {
   const newClient = useSelector((state) => state.newClient);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const floatInputData = [
+    { label: "نام", type: "text", item: "firstName" },
+    { label: "نام خانوادگی", type: "text", item: "lastName" },
+    { label: "قد", type: "number", item: "height" },
+    { label: "تاریخ تولد", type: "date", item: "birthdate" },
+    { label: "محل سکونت", type: "text", item: "location" },
+  ];
   const showModal = () => {
     setIsModalOpen(true);
     dispatch(clearCLient());
@@ -34,7 +41,6 @@ export function TableHeader() {
     dispatch(editNewClient(payload));
   };
 
-
   const [filterClients, setFilterClients] = useState("");
   const [searchText, setSearchText] = useState("");
   const filterOptions = {
@@ -48,7 +54,6 @@ export function TableHeader() {
     setFilterClients(fuse.search(searchText));
   }
   console.log(filterClients);
-
 
   return (
     <div className={styles.table_header}>
@@ -81,7 +86,17 @@ export function TableHeader() {
           okText="ثبت"
           cancelText="انصراف"
         >
-          <FloatingLabelInput
+          {floatInputData.map(({ label, type, item }) => (
+            <FloatingLabelInput
+              key={`${label}_float`}
+              label={label}
+              placeholder={`${label} را وارد کنید`}
+              value={newClient[item]}
+              changeHandler={(value) => handleOnChangeInputs({ [item]: value })}
+              type={type}
+            />
+          ))}
+          {/* <FloatingLabelInput
             label="نام"
             placeholder="نام را وارد کنید"
             value={newClient.firstName}
@@ -116,10 +131,9 @@ export function TableHeader() {
             placeholder="محل سکونت کاربر را وارد کنید"
             value={newClient.location}
             changeHandler={(value) => handleOnChangeInputs({ location: value })}
-          />
+          /> */}
         </Modal>
       </div>
-
     </div>
   );
 }

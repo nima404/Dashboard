@@ -1,0 +1,14 @@
+.delete_btn {
+  border: none;
+  color: red;
+  font-size: 17px;
+  margin-left: 5px;
+  background: none;
+}
+
+.edit_btn {
+  border: none;
+  color: blue;
+  font-size: 17px;
+  background: none;
+}

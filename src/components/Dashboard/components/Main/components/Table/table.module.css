@@ -12,32 +12,17 @@
   margin: 0 auto;
 }
 
-.delete_btn {
-  border: none;
-  color: red;
-  font-size: 17px;
-  margin-left: 5px;
-  background: none;
-}
-
-.edit_btn {
-  border: none;
-  color: blue;
-  font-size: 17px;
-  background: none;
-}
-
 .table_background {
   /* background: darkblue; */
   color: white;
   padding: 10px;
 }
 
-th{
+th {
   padding: 12px !important;
 }
 
-tr{
+tr {
   background: white !important;
   color: darkblue !important;
 }
