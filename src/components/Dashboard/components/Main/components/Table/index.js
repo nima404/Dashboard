@@ -5,7 +5,6 @@ import {
   deleteClient,
   editClient,
 } from "../../../../../../store/clients/clients.action";
-import { editNewClient } from "../../../../../../store/newClient/newClient.action";
 import { EditInput } from "./components/EditInput";
 import styles from "./table.module.css";
 export function Table() {
