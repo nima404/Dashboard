@@ -55,7 +55,7 @@ export function FloatingLabelInput({
     <TextInput
       label={label}
       placeholder={placeholder}
-      required
+      required={true}
       type={type}
       classNames={classes}
       value={value}

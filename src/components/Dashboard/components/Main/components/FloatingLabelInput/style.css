@@ -14,3 +14,15 @@
 .mantine-14h1fwz {
   text-align: right;
 }
+input[type="date"]::-webkit-datetime-edit-text {
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-month-field {
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-day-field {
+  display: none;
+}
+input[type="date"]::-webkit-datetime-edit-year-field {
+  display: none;
+}

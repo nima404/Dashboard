@@ -2,9 +2,8 @@ import styles from "./style.module.css";
 import "./tableHeader.css";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
-import { SidebarContext } from "../../../../../../context/sidebarContext";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearCLient,
@@ -67,6 +66,15 @@ export function TableHeader() {
             value={newClient.height}
             type="number"
             changeHandler={(value) => handleOnChangeInputs({ height: value })}
+          />
+          <FloatingLabelInput
+            label="تاریخ تولد"
+            placeholder="تاریخ تولد کابر را وارد کنید"
+            value={newClient.birthdate}
+            type="date"
+            changeHandler={(value) =>
+              handleOnChangeInputs({ birthdate: value })
+            }
           />
           <FloatingLabelInput
             label="محل سکونت"
