@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "../../../../../../hooks/useTheme/useTheme";
-import {
-  deleteClient,
-  editClient,
-} from "../../../../../../store/clients/clients.action";
-import { ButtonIcon } from "./components/ButtonIcon";
+
 import { TableRowWithInputs } from "./components/TableRowWithInputs";
+
 import styles from "./table.module.css";
+import { TableRow } from "./components/TableRow";
+
 export function Table() {
   const [theme, toggle] = useTheme();
   const [editedClient, setEditedClient] = useState();
@@ -31,15 +30,6 @@ export function Table() {
     location: "",
   };
   const [editedData, setEditedData] = useState(initialEditedClient);
-  const dispatch = useDispatch();
-  function handleDeleteClient(id) {
-    dispatch(deleteClient(id));
-  }
-  function handleEditeClient(client) {
-    setEditedClient(client.id);
-    setEditedData(client);
-  }
-
   return (
     <div className={styles.table_container}>
       <table
@@ -72,29 +62,13 @@ export function Table() {
                   setEditedClient={setEditedClient}
                 />
               ) : (
-                <tr key={`${client.id}_${index}`}>
-                  <th scope="col">{index + 1}</th>
-                  <th scope="col">{client.firstName}</th>
-                  <th scope="col">{client.lastName}</th>
-                  <th scope="col">{client.birthdate}</th>
-                  <th scope="col">{client.age}</th>
-                  <th scope="col">{client.height}</th>
-                  <th scope="col">{client.location}</th>
-                  <th>
-                    <ButtonIcon
-                      title={"Delete client"}
-                      icon={"trash3"}
-                      handleClick={() => handleDeleteClient(client.id)}
-                      className={"delete_btn"}
-                    />
-                    <ButtonIcon
-                      title={"Edit client"}
-                      icon={"pencil-square"}
-                      handleClick={() => handleEditeClient(client)}
-                      className={"edit_btn"}
-                    />
-                  </th>
-                </tr>
+                <TableRow
+                  key={`${client.id}_${index}`}
+                  setEditedData={setEditedData}
+                  client={client}
+                  index={index}
+                  setEditedClient={setEditedClient}
+                />
               );
             })
           )}

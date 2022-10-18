@@ -96,42 +96,6 @@ export function TableHeader() {
               type={type}
             />
           ))}
-          {/* <FloatingLabelInput
-            label="نام"
-            placeholder="نام را وارد کنید"
-            value={newClient.firstName}
-            changeHandler={(value) =>
-              handleOnChangeInputs({ firstName: value })
-            }
-          />
-          <FloatingLabelInput
-            label="نام خانوادگی"
-            placeholder="نام خانوادگی را وارد کنید"
-            value={newClient.lastName}
-            changeHandler={(value) => handleOnChangeInputs({ lastName: value })}
-          />
-          <FloatingLabelInput
-            label="قد"
-            placeholder="قد کابر را وارد کنید"
-            value={newClient.height}
-            type="number"
-            changeHandler={(value) => handleOnChangeInputs({ height: value })}
-          />
-          <FloatingLabelInput
-            label="تاریخ تولد"
-            placeholder="تاریخ تولد کابر را وارد کنید"
-            value={newClient.birthdate}
-            type="date"
-            changeHandler={(value) =>
-              handleOnChangeInputs({ birthdate: value })
-            }
-          />
-          <FloatingLabelInput
-            label="محل سکونت"
-            placeholder="محل سکونت کاربر را وارد کنید"
-            value={newClient.location}
-            changeHandler={(value) => handleOnChangeInputs({ location: value })}
-          /> */}
         </Modal>
       </div>
     </div>

@@ -30,23 +30,23 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
     <tr>
       <th scope="row">{index + 1}</th>
       {rowItems.map((item) => (
-        <th scope="col" key={`${item}`}>
+        <td scope="col" key={`${item.name}`}>
           <EditInput
             value={editedData[item.name]}
             type={item.type}
             handleOnChange={(val) => handleOnChangeInputs({ [item.name]: val })}
           />
-        </th>
+        </td>
       ))}
       <th>
         <ButtonIcon
-          title={"Cancel"}
+          title={"انصراف"}
           className={"delete_btn"}
           handleClick={handleCancelEdite}
           icon={"x-lg"}
         />
         <ButtonIcon
-          title={"Submit"}
+          title={"ثبت تغییرات"}
           className={"edit_btn"}
           handleClick={handleSubmitEdite}
           icon={"check-lg"}

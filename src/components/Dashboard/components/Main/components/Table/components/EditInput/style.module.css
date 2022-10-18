@@ -1,5 +1,9 @@
 .edit_input {
-  width: 80px;
+  width: 75px;
+  border: none;
+}
+.edit_input:focus {
+  box-shadow: none;
 }
 .edit_input[type="date"] {
   width: unset;

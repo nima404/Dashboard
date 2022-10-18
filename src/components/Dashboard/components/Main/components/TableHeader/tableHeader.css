@@ -7,3 +7,33 @@
 .ant-modal-footer {
   text-align: left !important;
 }
+.ant-modal-footer .ant-btn-default {
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+.ant-modal-footer .ant-btn-primary {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 20px;
+  background-color: #00008b;
+}
+.ant-modal-footer .ant-btn-primary:hover {
+  background-color: #00006f;
+}
+.ant-modal-body {
+  text-align: right;
+}
+.ant-modal-confirm .ant-modal-confirm-btns {
+  text-align: left;
+}
+.ant-modal-confirm-body > .anticon {
+  float: left;
+  margin-left: 10px;
+}
+.ant-modal-confirm-content {
+  text-align: center;
+  font-weight: 800;
+}
+.ant-modal-confirm-btns {
+  text-align: left !important;
+}
