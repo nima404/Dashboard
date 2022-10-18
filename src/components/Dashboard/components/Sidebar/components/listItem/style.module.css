@@ -1,0 +1,33 @@
+.listItem_style {
+  border-radius: 6px;
+  padding: 8px;
+  color: darkblue;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.listItem_style:hover {
+  background: darkblue;
+  color: white;
+}
+.listItem_button_style {
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon_style {
+  font-size: 25px;
+}
+.close_sidebar {
+  visibility: hidden;
+}
+
+.close_sidebar_paragraf {
+  display: none;
+}
+.listItem_button_paragraf_style {
+  margin: 0 10px 0 0;
+  font-weight: bold;
+}

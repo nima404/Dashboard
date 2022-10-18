@@ -18,6 +18,13 @@ export function TableHeader() {
   const newClient = useSelector((state) => state.newClient);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const floatInputData = [
+    { label: "نام", type: "text", item: "firstName" },
+    { label: "نام خانوادگی", type: "text", item: "lastName" },
+    { label: "قد", type: "number", item: "height" },
+    { label: "تاریخ تولد", type: "date", item: "birthdate" },
+    { label: "محل سکونت", type: "text", item: "location" },
+  ];
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -37,7 +44,6 @@ export function TableHeader() {
   const handleOnChangeInputs = (payload) => {
     dispatch(editNewClient(payload));
   };
-
 
   const [filterClients, setFilterClients] = useState("");
 
@@ -68,7 +74,6 @@ export function TableHeader() {
       progress: undefined,
       theme: "light",
     });
-
 
 
 
@@ -103,42 +108,16 @@ export function TableHeader() {
           okText="ثبت"
           cancelText="انصراف"
         >
-          <FloatingLabelInput
-            label="نام"
-            placeholder="نام را وارد کنید"
-            value={newClient.firstName}
-            changeHandler={(value) =>
-              handleOnChangeInputs({ firstName: value })
-            }
-          />
-          <FloatingLabelInput
-            label="نام خانوادگی"
-            placeholder="نام خانوادگی را وارد کنید"
-            value={newClient.lastName}
-            changeHandler={(value) => handleOnChangeInputs({ lastName: value })}
-          />
-          <FloatingLabelInput
-            label="قد"
-            placeholder="قد کابر را وارد کنید"
-            value={newClient.height}
-            type="number"
-            changeHandler={(value) => handleOnChangeInputs({ height: value })}
-          />
-          <FloatingLabelInput
-            label="تاریخ تولد"
-            placeholder="تاریخ تولد کابر را وارد کنید"
-            value={newClient.birthdate}
-            type="date"
-            changeHandler={(value) =>
-              handleOnChangeInputs({ birthdate: value })
-            }
-          />
-          <FloatingLabelInput
-            label="محل سکونت"
-            placeholder="محل سکونت کاربر را وارد کنید"
-            value={newClient.location}
-            changeHandler={(value) => handleOnChangeInputs({ location: value })}
-          />
+          {floatInputData.map(({ label, type, item }) => (
+            <FloatingLabelInput
+              key={`${label}_float`}
+              label={label}
+              placeholder={`${label} را وارد کنید`}
+              value={newClient[item]}
+              changeHandler={(value) => handleOnChangeInputs({ [item]: value })}
+              type={type}
+            />
+          ))}
         </Modal>
       </div>
       <ToastContainer
@@ -153,7 +132,6 @@ export function TableHeader() {
         pauseOnHover
         theme="light"
       />
-
     </div>
   );
 }
