@@ -23,9 +23,20 @@
 }
 
 .sidebar_header_style h4 {
-  color: darkblue;
+  color: black;
   font-weight: bold;
   margin: 0 15px 0 0;
+  position: relative;
+}
+
+.sidebar_header_style h4::after {
+  content: "خوش آمدید";
+  position: absolute;
+  top: -12px;
+  width: 100%;
+  right: 0;
+  font-size: 8px;
+  font-weight: bold;
 }
 
 .searchInput_style::placeholder {

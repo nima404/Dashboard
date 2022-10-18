@@ -3,6 +3,8 @@ import { SidebarContext } from "../../../../context/sidebarContext"
 import { ListItem } from "./components/listItem/index"
 import styles from "./style.module.css"
 
+import sidebarlogo from "../../../../assets/dashboard-layout.png"
+
 export const Sidebar = () => {
 
     // State
@@ -15,7 +17,9 @@ export const Sidebar = () => {
 
     return (
         <div className={sidebar ? styles.close_sidbar_style : styles.sidbar_style}>
-
+            <div className={styles.sidebarLogo_parent}>
+                <img src={sidebarlogo} className={styles.sidebar_logo}/>
+            </div>
             <br />
 
             <div className={sidebar ? "" : styles.sidebar_main_style}>

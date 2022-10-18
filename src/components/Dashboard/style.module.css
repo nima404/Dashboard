@@ -25,7 +25,7 @@ body {
 }
 
 .Sidebar_false {
-  width: 6.5%;
+  width: 5.5%;
   transition: width 2s;
   min-height: 100vh;
 }
@@ -33,6 +33,6 @@ body {
 .dashboard_container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   direction: rtl;
 }

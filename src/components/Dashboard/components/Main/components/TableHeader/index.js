@@ -11,11 +11,14 @@ import {
 } from "../../../../../../store/newClient/newClient.action";
 import Fuse from "fuse.js";
 import { addClient } from "../../../../../../store/clients/clients.action";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function TableHeader() {
   const newClient = useSelector((state) => state.newClient);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const showModal = () => {
     setIsModalOpen(true);
     dispatch(clearCLient());
@@ -24,6 +27,7 @@ export function TableHeader() {
     dispatch(addClient(newClient));
     dispatch(clearCLient());
     setIsModalOpen(false);
+    AddUser()
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -36,18 +40,36 @@ export function TableHeader() {
 
 
   const [filterClients, setFilterClients] = useState("");
+
   const [searchText, setSearchText] = useState("");
+
   const filterOptions = {
     isCaseSensitive: false,
     includeMatches: true,
     keys: ["firstName", "lastName", "location"],
   };
+
   const clients = useSelector((state) => state.client.clients);
+
   const fuse = new Fuse(clients, filterOptions);
+
   function handleSearch() {
     setFilterClients(fuse.search(searchText));
   }
-  console.log(filterClients);
+
+  const AddUser = () =>
+    toast.success('کاربر با موفقیت اضافه شد', {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+
 
 
   return (
@@ -119,6 +141,18 @@ export function TableHeader() {
           />
         </Modal>
       </div>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
     </div>
   );

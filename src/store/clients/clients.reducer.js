@@ -17,17 +17,27 @@ export function clientReducer(state = initialState, action) {
       };
 
     case actionTypes.EDIT_CLIENT: {
+
       const clientIndex = state.clients.findIndex(
         (item) => item.id === action.payload.id
       );
+
       const age = calculateAge(action.payload.birthdate);
+
       const clientsList = [...state.clients];
+
       clientsList[clientIndex] = { ...action.payload, age };
+
       return { ...state, clients: clientsList };
+
     }
+
     default:
-      return state;
+      
+    return state;
+
   }
+
 }
 function calculateAge(birthdate) {
   const nowDate = new Date();

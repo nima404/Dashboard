@@ -8,6 +8,9 @@ import {
 import { editNewClient } from "../../../../../../store/newClient/newClient.action";
 import { EditInput } from "./components/EditInput";
 import styles from "./table.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export function Table() {
   const [theme, toggle] = useTheme();
   const [editedClient, setEditedClient] = useState();
@@ -20,10 +23,34 @@ export function Table() {
     birthdate: "",
     location: "",
   };
+
+  const DeleteUser = () =>
+    toast.success('کاربر با موفقیت حذف شد', {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  const EditUser = () =>
+    toast.success('ویرایش با موفقیت انجام شد', {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   const [editedData, setEditedData] = useState(initialEditedClient);
   const dispatch = useDispatch();
   function handleDeleteClient(id) {
     dispatch(deleteClient(id));
+    DeleteUser()
   }
   function handleEditeClient(client) {
     setEditedClient(client.id);
@@ -37,10 +64,15 @@ export function Table() {
   function handleSubmitEdite() {
     dispatch(editClient(editedData));
     setEditedClient();
+    EditUser()
   }
   function handleCancelEdite() {
     setEditedClient();
   }
+
+
+  // Toast
+
   return (
     <div className={styles.table_container}>
       <table
@@ -168,6 +200,18 @@ export function Table() {
           )}
         </tbody>
       </table>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

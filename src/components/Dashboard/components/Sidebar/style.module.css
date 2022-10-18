@@ -116,3 +116,13 @@
 .close_sidebar_paragraf {
     display: none;
 }
+
+/* .sidebarLogo_parent{
+} */
+.sidebar_logo{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    padding-top: 20px;
+}
