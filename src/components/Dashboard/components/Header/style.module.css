@@ -20,7 +20,12 @@
   margin: 0 15px 0 0;
   position: relative;
 }
-
+.header_style_dark {
+  background-color: #00001e;
+}
+.header_style_dark * {
+  color: white !important;
+}
 .sidebar_header_style h4::after {
   content: "خوش آمدید";
   position: absolute;

@@ -4,3 +4,6 @@
   border-radius: 8px;
   padding: 15px;
 }
+.main_dark * {
+  color: white !important;
+}

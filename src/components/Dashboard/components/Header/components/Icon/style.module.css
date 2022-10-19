@@ -1,62 +1,64 @@
 .option_parent {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 28%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 28%;
 }
 
 .icon_style {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .optionStyle_button {
-    background: none;
-    border: none;
-    position: relative;
+  background: none;
+  border: none;
+  position: relative;
 }
 
 .optionStyle_button:hover .notification_massage {
-    display: block;
+  display: block;
 }
 
 .user_style {
-    background: darkblue;
-    padding: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px 0 0;
+  background: darkblue;
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px 0 0;
 }
-
+.user_style_dark {
+  background: #7a7a7a;
+}
 .userOption_styles {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .userName_style {
-    font-weight: bold;
-    font-family: cursive;
+  font-weight: bold;
+  font-family: cursive;
 }
 
 .after_before_style::after {
-    content: "";
-    width: 6px;
-    height: 6px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: red;
-    border-radius: 50%;
+  content: "";
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  border-radius: 50%;
 }
 
 .option_Style {
-    position: relative;
+  position: relative;
 }
 
 .userIcon_styles {
-    color: white;
+  color: white;
 }

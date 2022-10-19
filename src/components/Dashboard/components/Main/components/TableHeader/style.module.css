@@ -7,7 +7,9 @@
   margin: 0 0;
   border: none;
 }
-
+.add_btn_dark {
+  background-color: black;
+}
 .add_btn :hover {
   background-color: darkblue;
 }
@@ -47,14 +49,15 @@
   background: #dcdcdc;
   border-radius: 5px;
   padding-left: 20px;
-  /* margin: 0 23px 0 0; */
+}
+.searchInput_parent_dark {
+  background: #7a7a7a;
 }
 
 .search_btn {
   font-size: 15px;
   border: none;
 }
-
 
 .searchInput_style {
   background: none;
@@ -63,6 +66,10 @@
   border-radius: 5px;
   width: 100%;
   margin: 0 15px 0 0;
+}
+
+.searchInput_parent_dark .searchInput_style::placeholder {
+  color: white;
 }
 
 .searchInput_style:focus {

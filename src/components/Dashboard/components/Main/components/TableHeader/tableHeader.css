@@ -1,11 +1,13 @@
 .ant-modal-header {
   direction: rtl;
+  /* background-color: gray; */
 }
 .ant-modal-close {
   left: 0 !important;
 }
 .ant-modal-footer {
   text-align: left !important;
+  /* background-color: gray; */
 }
 .ant-modal-footer .ant-btn-default {
   border-radius: 5px;
@@ -13,7 +15,7 @@
 }
 .ant-modal-footer .ant-btn-default :hover {
   color: black;
-  border: gray;
+  border: none;
 }
 .ant-btn-primary {
   border-radius: 5px !important;

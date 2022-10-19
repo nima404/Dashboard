@@ -15,7 +15,13 @@
   min-height: 100vh;
   box-shadow: -4px 0px 20px 0px #ececec;
 }
-
+.sidbar_style_dark {
+  background: #00001e !important;
+  color: white;
+}
+.sidbar_style_dark * {
+  color: white !important;
+}
 .close_sidbar_style {
   position: relative;
   width: 100%;

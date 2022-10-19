@@ -2,7 +2,7 @@ import styles from "./style.module.css";
 import "./tableHeader.css";
 import "antd/dist/antd.css";
 import { Modal } from "antd";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,10 +14,12 @@ import {
   addClient,
   setFiltered,
 } from "../../../../../../store/clients/clients.action";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeContext } from "../../../../../../context/themeContext";
 
 export function TableHeader() {
+  const { theme } = useContext(ThemeContext);
   const newClient = useSelector((state) => state.newClient);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,11 +73,10 @@ export function TableHeader() {
   const clients = useSelector((state) => state.client.clients);
 
   const fuse = new Fuse(clients, filterOptions);
-
-  function handleSearch() {
+  useEffect(() => {
     const newFilteredList = fuse.search(searchText).map((node) => node.item);
     dispatch(setFiltered(newFilteredList));
-  }
+  }, [searchText]);
 
   const AddUser = () =>
     toast.success("کاربر با موفقیت اضافه شد", {
@@ -95,11 +96,20 @@ export function TableHeader() {
         <h3 className={styles.title}>لیست کاربران</h3>
       </div>
       <div className={styles.header_footer_style}>
-        <button className={styles.add_btn} onClick={showModal}>
+        <button
+          className={`${styles.add_btn} ${
+            theme === "dark" && styles.add_btn_dark
+          }`}
+          onClick={showModal}
+        >
           + افزوردن کاربر
         </button>
 
-        <div className={styles.searchInput_parent}>
+        <div
+          className={`${styles.searchInput_parent} ${
+            theme === "dark" && styles.searchInput_parent_dark
+          }`}
+        >
           <input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -107,9 +117,6 @@ export function TableHeader() {
             className={styles.searchInput_style}
             placeholder="جست و جو.."
           />
-          <button className={styles.optionStyle_button} onClick={handleSearch}>
-            <i className={`bi bi-search ${styles.search_btn}`}></i>
-          </button>
         </div>
         <Modal
           style={{ top: 20 }}
@@ -133,18 +140,6 @@ export function TableHeader() {
           ))}
         </Modal>
       </div>
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </div>
   );
 }

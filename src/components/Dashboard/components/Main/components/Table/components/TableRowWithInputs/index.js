@@ -2,15 +2,15 @@ import { useDispatch } from "react-redux";
 import { editClient } from "../../../../../../../../store/clients/clients.action";
 import { ButtonIcon } from "../ButtonIcon";
 import { EditInput } from "../EditInput";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function TableRowWithInputs({ edited, setEditedClient, index }) {
   const { editedData, setEditedData } = edited;
   const dispatch = useDispatch();
 
   const EditUser = () =>
-    toast.success('ویرایش با موفقیت انجام شد', {
+    toast.success("ویرایش با موفقیت انجام شد", {
       position: "bottom-left",
       autoClose: 5000,
       hideProgressBar: false,
@@ -32,7 +32,7 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
   function handleSubmitEdite() {
     dispatch(editClient(editedData));
     setEditedClient();
-    EditUser()
+    EditUser();
   }
   function handleCancelEdite() {
     setEditedClient();
@@ -44,7 +44,6 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
   }
   return (
     <>
-
       <tr>
         <th scope="row">{index + 1}</th>
         {rowItems.map((item) => (
@@ -52,7 +51,9 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
             <EditInput
               value={editedData[item.name]}
               type={item.type}
-              handleOnChange={(val) => handleOnChangeInputs({ [item.name]: val })}
+              handleOnChange={(val) =>
+                handleOnChangeInputs({ [item.name]: val })
+              }
             />
           </td>
         ))}
@@ -71,19 +72,6 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
           />
         </th>
       </tr>
-
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 }
