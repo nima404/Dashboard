@@ -1,4 +1,9 @@
-import { ADD_CLIENT, DELETE_CLIENT, EDIT_CLIENT } from "./clients.constans";
+import {
+  ADD_CLIENT,
+  DELETE_CLIENT,
+  EDIT_CLIENT,
+  SET_FILTERED,
+} from "./clients.constans";
 
 export const addClient = (obj) => {
   return {
@@ -18,5 +23,11 @@ export const editClient = (obj) => {
   return {
     type: EDIT_CLIENT,
     payload: obj,
+  };
+};
+export const setFiltered = (array) => {
+  return {
+    type: SET_FILTERED,
+    payload: array,
   };
 };

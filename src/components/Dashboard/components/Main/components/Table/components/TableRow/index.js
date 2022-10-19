@@ -3,8 +3,8 @@ import { ButtonIcon } from "../ButtonIcon";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { Modal } from "antd";
 import { deleteClient } from "../../../../../../../../store/clients/clients.action";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function TableRow({ client, index, setEditedData, setEditedClient }) {
   const { confirm } = Modal;
@@ -12,10 +12,9 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
   function handleEditeClient(client) {
     setEditedClient(client.id);
     setEditedData(client);
-    // EditUser()
   }
-  const DeleteUser = () =>
-    toast.success('کاربر با موفقیت حذف شد', {
+  const DeleteUser = (id) =>
+    toast.success("کاربر با موفقیت حذف شد", {
       position: "bottom-left",
       autoClose: 5000,
       hideProgressBar: false,
@@ -25,9 +24,6 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
       progress: undefined,
       theme: "light",
     });
-
-
-
 
   const showDeleteConfirm = (client) => {
     confirm({
@@ -39,9 +35,9 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
       cancelText: "انصراف",
       onOk() {
         dispatch(deleteClient(client.id));
-        DeleteUser()
+        DeleteUser();
       },
-      onCancel() { },
+      onCancel() {},
     });
   };
 

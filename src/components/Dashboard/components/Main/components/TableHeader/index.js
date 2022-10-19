@@ -10,17 +10,20 @@ import {
   editNewClient,
 } from "../../../../../../store/newClient/newClient.action";
 import Fuse from "fuse.js";
-import { addClient } from "../../../../../../store/clients/clients.action";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {
+  addClient,
+  setFiltered,
+} from "../../../../../../store/clients/clients.action";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function TableHeader() {
   const newClient = useSelector((state) => state.newClient);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const floatInputData = [
-    { label: "نام", type: "text", item: "firstName" },
-    { label: "نام خانوادگی", type: "text", item: "lastName" },
+    { label: "نام", type: "text", item: "firstName", required: true },
+    { label: "نام خانوادگی", type: "text", item: "lastName", required: true },
     { label: "قد", type: "number", item: "height" },
     { label: "تاریخ تولد", type: "date", item: "birthdate" },
     { label: "محل سکونت", type: "text", item: "location" },
@@ -30,11 +33,23 @@ export function TableHeader() {
     setIsModalOpen(true);
     dispatch(clearCLient());
   };
+  const error = (error) => {
+    Modal.error({
+      title: error,
+    });
+  };
   const handleOk = () => {
-    dispatch(addClient(newClient));
-    dispatch(clearCLient());
-    setIsModalOpen(false);
-    AddUser()
+    const emptyRequired = floatInputData.find(
+      (data) => data.required && newClient[data.item] === ""
+    );
+    if (emptyRequired === undefined) {
+      dispatch(addClient(newClient));
+      dispatch(clearCLient());
+      setIsModalOpen(false);
+      AddUser();
+    } else {
+      error(`وارد کردن ${emptyRequired.label} الزامی است`);
+    }
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -44,8 +59,6 @@ export function TableHeader() {
   const handleOnChangeInputs = (payload) => {
     dispatch(editNewClient(payload));
   };
-
-  const [filterClients, setFilterClients] = useState("");
 
   const [searchText, setSearchText] = useState("");
 
@@ -60,11 +73,12 @@ export function TableHeader() {
   const fuse = new Fuse(clients, filterOptions);
 
   function handleSearch() {
-    setFilterClients(fuse.search(searchText));
+    const newFilteredList = fuse.search(searchText).map((node) => node.item);
+    dispatch(setFiltered(newFilteredList));
   }
 
   const AddUser = () =>
-    toast.success('کاربر با موفقیت اضافه شد', {
+    toast.success("کاربر با موفقیت اضافه شد", {
       position: "bottom-left",
       autoClose: 5000,
       hideProgressBar: false,
@@ -74,8 +88,6 @@ export function TableHeader() {
       progress: undefined,
       theme: "light",
     });
-
-
 
   return (
     <div className={styles.table_header}>
@@ -108,8 +120,9 @@ export function TableHeader() {
           okText="ثبت"
           cancelText="انصراف"
         >
-          {floatInputData.map(({ label, type, item }) => (
+          {floatInputData.map(({ label, type, item, required }) => (
             <FloatingLabelInput
+              required={required}
               key={`${label}_float`}
               label={label}
               placeholder={`${label} را وارد کنید`}

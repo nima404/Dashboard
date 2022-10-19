@@ -8,16 +8,21 @@ export function clientReducer(state = initialState, action) {
       const lastId = clientsLen > 0 ? state.clients[clientsLen - 1].id + 1 : 1;
       const age = calculateAge(action.payload.birthdate);
       const newclient = { ...action.payload, age, id: lastId };
-      return { ...state, clients: [...state.clients, newclient] };
+      return {
+        clients: [...state.clients, newclient],
+        filteredClients: [...state.clients, newclient],
+      };
     }
     case actionTypes.DELETE_CLIENT:
+      const newClientList = state.clients.filter(
+        (item) => item.id !== action.payload.id
+      );
       return {
-        ...state,
-        clients: state.clients.filter((item) => item.id !== action.payload.id),
+        clients: newClientList,
+        filteredClients: newClientList,
       };
 
     case actionTypes.EDIT_CLIENT: {
-
       const clientIndex = state.clients.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -28,16 +33,17 @@ export function clientReducer(state = initialState, action) {
 
       clientsList[clientIndex] = { ...action.payload, age };
 
-      return { ...state, clients: clientsList };
-
+      return { clients: clientsList, filteredClients: clientsList };
     }
-
+    case actionTypes.SET_FILTERED: {
+      if (action.payload.length === 0) {
+        return { ...state, filteredClients: state.clients };
+      }
+      return { ...state, filteredClients: action.payload };
+    }
     default:
-      
-    return state;
-
+      return state;
   }
-
 }
 function calculateAge(birthdate) {
   const nowDate = new Date();

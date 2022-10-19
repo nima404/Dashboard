@@ -11,14 +11,18 @@
   border-radius: 5px;
   padding: 5px 15px;
 }
-.ant-modal-footer .ant-btn-primary {
-  border-radius: 5px;
-  border: none;
-  padding: 5px 20px;
-  background-color: #00008b;
+.ant-modal-footer .ant-btn-default :hover {
+  color: black;
+  border: gray;
 }
-.ant-modal-footer .ant-btn-primary:hover {
-  background-color: #00006f;
+.ant-btn-primary {
+  border-radius: 5px !important;
+  border: none !important;
+  padding: 5px 20px !important;
+  background-color: #00008b !important;
+}
+.ant-btn-primary:hover {
+  background-color: #00006f !important;
 }
 .ant-modal-body {
   text-align: right;

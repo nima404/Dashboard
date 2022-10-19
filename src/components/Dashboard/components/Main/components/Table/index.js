@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTheme } from "../../../../../../hooks/useTheme/useTheme";
 
 import { TableRowWithInputs } from "./components/TableRowWithInputs";
 
 import styles from "./table.module.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { TableRow } from "./components/TableRow";
 
 export function Table() {
   const [theme, toggle] = useTheme();
   const [editedClient, setEditedClient] = useState();
-  const clients = useSelector((state) => state.client.clients);
+  const filterClients = useSelector((state) => state.client.filteredClients);
   const tableHeader = [
     "#",
     "نام",
@@ -33,8 +33,6 @@ export function Table() {
     location: "",
   };
 
-
-
   const [editedData, setEditedData] = useState(initialEditedClient);
   return (
     <div className={styles.table_container}>
@@ -52,14 +50,14 @@ export function Table() {
           </tr>
         </thead>
         <tbody>
-          {clients.length === 0 ? (
+          {filterClients.length === 0 ? (
             <tr>
               <th className="text-center" colSpan="8">
                 هنوز کاربری اضافه نشده است{" "}
               </th>
             </tr>
           ) : (
-            clients.map((client, index) => {
+            filterClients.map((client, index) => {
               return client.id === editedClient ? (
                 <TableRowWithInputs
                   key={`${index}_edited`}

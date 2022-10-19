@@ -12,13 +12,11 @@ export const Sidebar = () => {
 
   return (
     <div className={sidebar ? styles.close_sidbar_style : styles.sidbar_style}>
-
       <SidebarHeader />
       <br />
       <SidebarMain />
       <br />
       <SidebarFooter />
-
     </div>
   );
 };

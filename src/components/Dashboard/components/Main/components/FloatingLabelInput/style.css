@@ -5,6 +5,13 @@
 .mantine-12sbrde {
   margin-top: 35px;
 }
+/* label span for requiered */
+.mantine-8o2w2t {
+  display: none;
+}
+.mantine-InputWrapper-label {
+  margin-right: 10px;
+}
 /* label */
 .mantine-TextInput-label {
   left: unset !important;
@@ -25,4 +32,14 @@ input[type="date"]::-webkit-datetime-edit-day-field {
 }
 input[type="date"]::-webkit-datetime-edit-year-field {
   display: none;
+}
+.mantine-TextInput-error {
+  position: absolute;
+  height: 0;
+}
+.mantine-TextInput-wrapper {
+  margin-top: 35px;
+}
+.mantine-Input-input {
+  text-align: right;
 }
