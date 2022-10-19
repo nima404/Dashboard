@@ -14,14 +14,6 @@
   background: white;
   padding: 20px;
 }
-
-.option_parent {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 28%;
-}
-
 .sidebar_header_style h4 {
   color: black;
   font-weight: bold;
@@ -37,76 +29,4 @@
   right: 0;
   font-size: 8px;
   font-weight: bold;
-}
-
-.searchInput_style::placeholder {
-  color: #a4a4a4;
-}
-
-.icon_style {
-  font-size: 20px;
-}
-
-.optionStyle_button {
-  background: none;
-  border: none;
-  position: relative;
-}
-
-.optionStyle_button:hover .notification_massage {
-  display: block;
-}
-
-.user_style {
-  background: darkblue;
-  padding: 5px;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 10px 0 0;
-}
-
-.userOption_styles {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.userName_style {
-  font-weight: bold;
-  font-family: cursive;
-}
-
-.after_before_style::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: red;
-  border-radius: 50%;
-}
-
-.option_Style {
-  position: relative;
-}
-
-.userIcon_styles {
-  color: white;
-}
-
-
-.searchInput_parent {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #e7e7e7;
-  border-radius: 5px;
-  padding-left: 20px;
-  margin: 0 23px 0 0;
 }

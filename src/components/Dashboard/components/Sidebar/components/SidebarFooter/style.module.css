@@ -1,0 +1,25 @@
+.sidebar_paragraf {
+    margin: 0;
+    padding: 5px;
+}
+
+.close_sidebar_paragraf {
+    display: none;
+}
+
+.sidebar_footer_style {
+    position: absolute;
+    bottom: 0;
+    color: darkblue;
+    padding: 15px 10px 15px 10px;
+    width: 100%;
+}
+
+.side_button_style {
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

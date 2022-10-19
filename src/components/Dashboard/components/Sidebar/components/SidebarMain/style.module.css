@@ -1,0 +1,23 @@
+.sidebar_main_style {
+    margin: 30px 0 0 0;
+}
+
+.sidebar_toggle_button_style {
+    position: absolute;
+    top: 400px;
+    left: 0%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    color: darkblue;
+    display: flex;
+    justify-content: center;
+    background: none;
+    align-items: center;
+  }
+
+.listItem_parent {
+    padding: 0;
+}

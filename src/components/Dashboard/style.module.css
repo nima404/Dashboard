@@ -7,10 +7,49 @@ body {
   font-family: "Vazir-FD" !important;
 }
 
+@keyframes opensidebar {
+  0% {
+    width: 5.5%;
+  }
+
+  5% {
+    width: 7%;
+  }
+
+  10% {
+    width: 8%;
+  }
+
+  15% {
+    width: 10%;
+  }
+
+  20% {
+    width: 12%;
+  }
+
+  25% {
+    width: 14%;
+  }
+
+  30% {
+    width: 16%;
+  }
+
+  35% {
+    width: 18%;
+  }
+
+  40% {
+    width: 20%;
+  }
+}
+
 .dashboard {
   width: 80%;
   font-family: "Vazir-FD";
   min-height: 100vh;
+  transition: width 2s;
 }
 
 .dashboard_false {
@@ -22,6 +61,7 @@ body {
 .Sidebar {
   width: 20%;
   min-height: 100vh;
+  animation: opensidebar 2s none;
 }
 
 .Sidebar_false {
@@ -32,7 +72,7 @@ body {
 
 .dashboard_container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   direction: rtl;
 }

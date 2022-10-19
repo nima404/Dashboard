@@ -74,4 +74,7 @@
   background: none;
   border: none;
   position: relative;
+  border-right: 1px solid black;
+  padding: 0 20px 0 0;
+  height: 20px;
 }
