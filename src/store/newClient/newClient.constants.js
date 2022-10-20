@@ -1,2 +1,0 @@
-export const EDIT_NEW_CLIENT = "EDIT_NEW_CLIENT";
-export const CLEAR_CLIENT = "CLEAR_CLIENT";

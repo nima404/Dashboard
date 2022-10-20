@@ -4,7 +4,7 @@ import { Icon } from "./components/Icon";
 import styles from "./style.module.css";
 
 export const Header = () => {
-  const { toggle, theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <header

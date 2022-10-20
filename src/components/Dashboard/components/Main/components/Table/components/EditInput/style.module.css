@@ -1,9 +1,11 @@
 .edit_input {
   width: 75px;
   border: none;
+  -webkit-appearance: none;
 }
 .edit_input:focus {
   box-shadow: none;
+  border: none;
 }
 .edit_input[type="date"] {
   width: unset;
@@ -17,4 +19,7 @@
 .edit_input[type="number"] {
   -moz-appearance: textfield;
   width: 40px;
+}
+.edit_input_dark {
+  background-color: gray;
 }

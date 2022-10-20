@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../../../../context/themeContext";
 export function Table() {
   const { theme } = useContext(ThemeContext);
   const [editedClient, setEditedClient] = useState();
-  const filterClients = useSelector((state) => state.client.filteredClients);
+  const { clients, filteredClients } = useSelector((state) => state.client);
   const tableHeader = [
     "#",
     "نام",
@@ -49,14 +49,20 @@ export function Table() {
           </tr>
         </thead>
         <tbody>
-          {filterClients.length === 0 ? (
+          {clients.length === 0 ? (
             <tr>
               <th className="text-center" colSpan="8">
-                هنوز کاربری اضافه نشده است{" "}
+                هنوز کاربری اضافه نشده است
+              </th>
+            </tr>
+          ) : filteredClients.length === 0 ? (
+            <tr>
+              <th className="text-center" colSpan="8">
+                کاربر مورد نظر پیدا نشد
               </th>
             </tr>
           ) : (
-            filterClients.map((client, index) => {
+            filteredClients.map((client, index) => {
               return client.id === editedClient ? (
                 <TableRowWithInputs
                   key={`${index}_edited`}

@@ -5,10 +5,6 @@ import { Modal } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  clearCLient,
-  editNewClient,
-} from "../../../../../../store/newClient/newClient.action";
 import Fuse from "fuse.js";
 import {
   addClient,
@@ -17,10 +13,19 @@ import {
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeContext } from "../../../../../../context/themeContext";
-
 export function TableHeader() {
   const { theme } = useContext(ThemeContext);
-  const newClient = useSelector((state) => state.newClient);
+  const initialNewClient = {
+    firstName: "",
+    lastName: "",
+    age: "",
+    height: "",
+    birthdate: "",
+    location: "",
+  };
+  const [newClient, setNewClient] = useState(initialNewClient);
+  const clients = useSelector((state) => state.client.clients);
+
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const floatInputData = [
@@ -30,10 +35,18 @@ export function TableHeader() {
     { label: "تاریخ تولد", type: "date", item: "birthdate" },
     { label: "محل سکونت", type: "text", item: "location" },
   ];
+  const [searchText, setSearchText] = useState("");
 
+  const filterOptions = {
+    isCaseSensitive: false,
+    includeMatches: true,
+    keys: ["firstName", "lastName", "location"],
+  };
+
+  const fuse = new Fuse(clients, filterOptions);
   const showModal = () => {
     setIsModalOpen(true);
-    dispatch(clearCLient());
+    setNewClient(initialNewClient);
   };
   const error = (error) => {
     Modal.error({
@@ -46,7 +59,7 @@ export function TableHeader() {
     );
     if (emptyRequired === undefined) {
       dispatch(addClient(newClient));
-      dispatch(clearCLient());
+      setNewClient(initialNewClient);
       setIsModalOpen(false);
       AddUser();
     } else {
@@ -55,26 +68,21 @@ export function TableHeader() {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
-    dispatch(clearCLient());
+  };
+  console.log(newClient);
+  const handleOnChangeInputs = (property) => {
+    setNewClient((prev) => {
+      return { ...prev, ...property };
+    });
   };
 
-  const handleOnChangeInputs = (payload) => {
-    dispatch(editNewClient(payload));
-  };
-
-  const [searchText, setSearchText] = useState("");
-
-  const filterOptions = {
-    isCaseSensitive: false,
-    includeMatches: true,
-    keys: ["firstName", "lastName", "location"],
-  };
-
-  const clients = useSelector((state) => state.client.clients);
-
-  const fuse = new Fuse(clients, filterOptions);
   useEffect(() => {
-    const newFilteredList = fuse.search(searchText).map((node) => node.item);
+    let newFilteredList;
+    if (searchText) {
+      newFilteredList = fuse.search(searchText).map((node) => node.item);
+    } else {
+      newFilteredList = clients;
+    }
     dispatch(setFiltered(newFilteredList));
   }, [searchText]);
 

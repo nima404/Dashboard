@@ -36,9 +36,6 @@ export function clientReducer(state = initialState, action) {
       return { clients: clientsList, filteredClients: clientsList };
     }
     case actionTypes.SET_FILTERED: {
-      if (action.payload.length === 0) {
-        return { ...state, filteredClients: state.clients };
-      }
       return { ...state, filteredClients: action.payload };
     }
     default:

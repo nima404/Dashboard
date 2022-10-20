@@ -7,7 +7,7 @@ import { Sidebar } from "./components/Sidebar";
 import styles from "./style.module.css";
 
 export function Dashboard() {
-  const { sidebar, toggleSidebar } = useContext(SidebarContext);
+  const { sidebar } = useContext(SidebarContext);
   const { theme } = useContext(ThemeContext);
   return (
     <div

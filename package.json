@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/dark-theme": "^2.0.2",
     "@emotion/react": "^11.10.4",
     "@mantine/core": "^5.5.5",
     "@mantine/hooks": "^5.5.5",

@@ -43,3 +43,14 @@
 .ant-modal-confirm-btns {
   text-align: left !important;
 }
+.ant-modal-confirm-error .ant-modal-confirm-body > .anticon {
+  position: absolute;
+  right: 5px;
+}
+.ant-modal-confirm-confirm .ant-modal-confirm-body > .anticon {
+  position: absolute;
+  right: 5px;
+}
+.ant-modal-confirm-body .ant-modal-confirm-title {
+  text-align: center !important;
+}
