@@ -5,6 +5,7 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 30px;
+  overflow-x: auto;
 }
 
 .table_st {
@@ -25,4 +26,11 @@ th {
 tr {
   background: white !important;
   color: darkblue !important;
+}
+
+@media screen and (max-width:1025px) {
+  .table_container{
+  overflow-x: auto;
+
+  }
 }

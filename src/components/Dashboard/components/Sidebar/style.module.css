@@ -15,17 +15,39 @@
   min-height: 100vh;
   box-shadow: -4px 0px 20px 0px #ececec;
 }
+
 .sidbar_style_dark {
-  background: #00001e !important;
+  background: #000000 !important;
   color: white;
+  box-shadow: -4px 0 20px 0 #161619;
 }
+
 .sidbar_style_dark * {
   color: white !important;
 }
+
 .close_sidbar_style {
   position: relative;
   width: 100%;
   background: white;
   min-height: 100vh;
   box-shadow: -3px 0px 20px 0px #e7e7e7;
+}
+
+@media screen and (max-width: 480px) {
+  .sidbar_style {
+    display: none;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+  .sidbar_style {
+    display: none;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+  .sidbar_style {
+    display: none;
+  }
 }

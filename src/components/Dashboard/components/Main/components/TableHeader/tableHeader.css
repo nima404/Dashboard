@@ -2,55 +2,77 @@
   direction: rtl;
   /* background-color: gray; */
 }
+
 .ant-modal-close {
   left: 0 !important;
 }
+
 .ant-modal-footer {
   text-align: left !important;
   /* background-color: gray; */
 }
+
 .ant-modal-footer .ant-btn-default {
   border-radius: 5px;
   padding: 5px 15px;
 }
+
 .ant-modal-footer .ant-btn-default :hover {
   color: black;
   border: none;
 }
+
 .ant-btn-primary {
   border-radius: 5px !important;
   border: none !important;
   padding: 5px 20px !important;
   background-color: #00008b !important;
 }
+
 .ant-btn-primary:hover {
   background-color: #00006f !important;
 }
+
 .ant-modal-body {
   text-align: right;
 }
+
 .ant-modal-confirm .ant-modal-confirm-btns {
   text-align: left;
 }
-.ant-modal-confirm-body > .anticon {
+
+.ant-modal-confirm-body>.anticon {
   float: left;
   margin-left: 10px;
 }
+
 .ant-modal-confirm-content {
   text-align: center;
   font-weight: 800;
 }
+
 .ant-modal-confirm-btns {
   text-align: left !important;
 }
-.ant-modal-confirm-error .ant-modal-confirm-body > .anticon {
+
+.ant-modal-confirm-error .ant-modal-confirm-body>.anticon {
   position: absolute;
   right: 5px;
 }
-.ant-modal-confirm-confirm .ant-modal-confirm-body > .anticon {
+
+.ant-modal-confirm-confirm .ant-modal-confirm-body>.anticon {
   position: absolute;
   right: 5px;
 }
+
 .ant-modal-confirm-body .ant-modal-confirm-title {
   text-align: center !important;
+}
+
+
+@media screen and (max-width:1025px) {
+  .ant-modal-content{
+    top: 15vh;
+    width: 100%;
+  }
 }

@@ -5,6 +5,8 @@ import { Modal } from "antd";
 import { deleteClient } from "../../../../../../../../store/clients/clients.action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Loading } from "../../../../../Loading";
+import { useEffect, useState } from "react";
 
 export function TableRow({ client, index, setEditedData, setEditedClient }) {
   const { confirm } = Modal;
@@ -13,6 +15,8 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
     setEditedClient(client.id);
     setEditedData(client);
   }
+
+  console.log("client: ", client);
   const DeleteUser = (id) =>
     toast.success("کاربر با موفقیت حذف شد", {
       position: "bottom-left",
@@ -37,7 +41,7 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
         dispatch(deleteClient(client.id));
         DeleteUser();
       },
-      onCancel() {},
+      onCancel() { },
     });
   };
 

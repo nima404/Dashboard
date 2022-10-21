@@ -104,19 +104,10 @@ export function TableHeader() {
         <h3 className={styles.title}>لیست کاربران</h3>
       </div>
       <div className={styles.header_footer_style}>
-        <button
-          className={`${styles.add_btn} ${
-            theme === "dark" && styles.add_btn_dark
-          }`}
-          onClick={showModal}
-        >
-          + افزوردن کاربر
-        </button>
 
         <div
-          className={`${styles.searchInput_parent} ${
-            theme === "dark" && styles.searchInput_parent_dark
-          }`}
+          className={`${styles.searchInput_parent} ${theme === "dark" && styles.searchInput_parent_dark
+            }`}
         >
           <input
             value={searchText}
@@ -126,6 +117,15 @@ export function TableHeader() {
             placeholder="جست و جو.."
           />
         </div>
+        <div className={styles.add_btn_parent}>
+          <button
+            className={`${styles.add_btn} ${theme === "dark" && styles.add_btn_dark
+              }`}
+            onClick={showModal}
+          >
+            + افزوردن کاربر
+          </button>
+        </div>
         <Modal
           style={{ top: 20 }}
           title="اطلاعات کاربر"
@@ -134,6 +134,7 @@ export function TableHeader() {
           onCancel={handleCancel}
           okText="ثبت"
           cancelText="انصراف"
+          maskStyle={{ opacity: 1 }}
         >
           {floatInputData.map(({ label, type, item, required }) => (
             <FloatingLabelInput

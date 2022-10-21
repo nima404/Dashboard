@@ -77,5 +77,37 @@ body {
   direction: rtl;
 }
 .dashboard_container_dark {
-  background-color: rgb(42, 42, 42);
+  background-color: #161619;
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .dashboard {
+    width: 100%;
+  }
+  .dashboard_container {
+    display: block;
+  }
+  .Sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width:768px) {
+  .dashboard {
+    width: 100%;
+  }
+  .Sidebar {
+    display: none;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+  .dashboard {
+    width: 100%;
+  }
+  .Sidebar {
+    display: none;
+  }
 }

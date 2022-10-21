@@ -14,17 +14,12 @@
   background: white;
   padding: 20px;
 }
+
 .sidebar_header_style h4 {
   color: black;
   font-weight: bold;
   margin: 0 15px 0 0;
   position: relative;
-}
-.header_style_dark {
-  background-color: #00001e;
-}
-.header_style_dark * {
-  color: white !important;
 }
 .sidebar_header_style h4::after {
   content: "خوش آمدید";
@@ -34,4 +29,20 @@
   right: 0;
   font-size: 8px;
   font-weight: bold;
+}
+
+.header_style_dark {
+  background-color: #000000;
+}
+
+.header_style_dark * {
+  color: white !important;
+}
+
+
+
+@media screen and (max-width:1025px) {
+  .responsive_style{
+    display: none;
+  }
 }

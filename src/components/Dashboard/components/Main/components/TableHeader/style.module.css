@@ -7,9 +7,11 @@
   margin: 0 0;
   border: none;
 }
+
 .add_btn_dark {
   background-color: black;
 }
+
 .add_btn :hover {
   background-color: darkblue;
 }
@@ -18,7 +20,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row-reverse;
   width: 100%;
 }
 
@@ -50,8 +51,9 @@
   border-radius: 5px;
   padding-left: 20px;
 }
+
 .searchInput_parent_dark {
-  background: #7a7a7a;
+  background: #2c3034;
 }
 
 .search_btn {
@@ -84,4 +86,43 @@
   border-right: 1px solid black;
   padding: 0 20px 0 0;
   height: 20px;
+}
+
+
+@media screen and (max-width: 575px) {
+  .header_footer_style {
+    display: block;
+  }
+
+  .searchInput_parent {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  .searchInput_style {
+    padding: 12px;
+  }
+
+  .add_btn_parent {
+    text-align: center;
+  }
+
+  .add_btn {
+    padding: 12px 20px;
+    border-radius: 6px;
+    width: 35%;
+  }
+}
+
+@media screen and (min-width:576px) and (max-width:768px) {
+  .searchInput_parent {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+  .searchInput_parent {
+    width: 70%;
+  }
 }

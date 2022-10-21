@@ -1,0 +1,23 @@
+.sidebar_header_style h5 {
+  color: black;
+  font-weight: bold;
+  margin: 10px 15px 0 0;
+  position: relative;
+}
+
+.sidebar_header_style h5::after {
+  content: "خوش آمدید";
+  position: absolute;
+  top: -12px;
+  width: 100%;
+  right: 0;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+
+@media screen and (min-width:1025px) {
+  .ResponsivMenu {
+    display: none !important;
+  }
+}
