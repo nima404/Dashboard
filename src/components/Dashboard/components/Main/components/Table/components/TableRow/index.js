@@ -8,7 +8,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Loading } from "../../../../../Loading";
 import { useEffect, useState } from "react";
 
-export function TableRow({ client, index, setEditedData, setEditedClient }) {
+export function TableRow({
+  client,
+  index,
+  deletUser,
+  setEditedData,
+  setEditedClient,
+}) {
   const { confirm } = Modal;
   const dispatch = useDispatch();
   function handleEditeClient(client) {
@@ -38,10 +44,11 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
       okType: "danger",
       cancelText: "انصراف",
       onOk() {
-        dispatch(deleteClient(client.id));
+        // dispatch(deleteClient(client.id));
+        deletUser(client.id);
         DeleteUser();
       },
-      onCancel() { },
+      onCancel() {},
     });
   };
 

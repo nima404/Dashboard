@@ -104,10 +104,10 @@ export function TableHeader() {
         <h3 className={styles.title}>لیست کاربران</h3>
       </div>
       <div className={styles.header_footer_style}>
-
         <div
-          className={`${styles.searchInput_parent} ${theme === "dark" && styles.searchInput_parent_dark
-            }`}
+          className={`${styles.searchInput_parent} ${
+            theme === "dark" && styles.searchInput_parent_dark
+          }`}
         >
           <input
             value={searchText}
@@ -119,8 +119,9 @@ export function TableHeader() {
         </div>
         <div className={styles.add_btn_parent}>
           <button
-            className={`${styles.add_btn} ${theme === "dark" && styles.add_btn_dark
-              }`}
+            className={`${styles.add_btn} ${
+              theme === "dark" && styles.add_btn_dark
+            }`}
             onClick={showModal}
           >
             + افزوردن کاربر

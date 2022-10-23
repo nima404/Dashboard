@@ -14,24 +14,34 @@ export function Table() {
 
   const { clients, filteredClients } = useSelector((state) => state.client);
 
-  const [users, setUser] = useState([])
+  const [users, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadData = () => {
     let mounted = true;
-    fetch("http://localhost:5000").then((result) => result.json()).then((data) => {
-      console.log({ data });
-      if (!mounted) {
-        return;
-      }
-      setUser(data);
-      setLoading(false);
-    });
+    fetch("http://localhost:5000")
+      .then((result) => result.json())
+      .then((data) => {
+        console.log({ data });
+        if (!mounted) {
+          return;
+        }
+        setUser(data);
+        setLoading(false);
+      });
     return () => {
       mounted = false;
       setLoading(false);
     };
-  }, [])
+  };
+  const deletUser = (id) => {
+    fetch(`http://localhost:5000/${id}`, {
+      method: "DELETE",
+    }).then(() => loadData());
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const tableHeader = [
     "#",
@@ -57,20 +67,21 @@ export function Table() {
   // const loading=()=>{}
   // useEffect(() => {
   //   try {
-  //     setTimeout(() => {
+  //     const load=setTimeout(() => {
   //       setLoading(false);
   //     }, 5000);
   //   } catch (e) {
   //     console.error(e);
   //   }
-  //   return clearTimeout();
+  //   return clearTimeout(load);
   // }, []);
 
   return (
     <div className={styles.table_container}>
       <table
-        className={`table table-hover ${theme === "dark" && "table-dark"
-          } table-striped ${styles.table_st} ${styles.table_background}`}
+        className={`table table-hover ${
+          theme === "dark" && "table-dark"
+        } table-striped ${styles.table_st} ${styles.table_background}`}
         dir="rtl"
       >
         <thead>
@@ -113,6 +124,7 @@ export function Table() {
                   client={client}
                   index={index}
                   setEditedClient={setEditedClient}
+                  deletUser={deletUser}
                 />
               );
             })
