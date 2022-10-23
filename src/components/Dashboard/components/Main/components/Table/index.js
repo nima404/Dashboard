@@ -11,7 +11,28 @@ import { Loading } from "../../../Loading";
 export function Table() {
   const { theme } = useContext(ThemeContext);
   const [editedClient, setEditedClient] = useState();
+
   const { clients, filteredClients } = useSelector((state) => state.client);
+
+  const [users, setUser] = useState([])
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("http://localhost:5000").then((result) => result.json()).then((data) => {
+      console.log({ data });
+      if (!mounted) {
+        return;
+      }
+      setUser(data);
+      setLoading(false);
+    });
+    return () => {
+      mounted = false;
+      setLoading(false);
+    };
+  }, [])
+
   const tableHeader = [
     "#",
     "نام",
@@ -33,25 +54,23 @@ export function Table() {
 
   const [editedData, setEditedData] = useState(initialEditedClient);
 
-  const [loading, setLoading] = useState(true);
   // const loading=()=>{}
-  useEffect(() => {
-    try {
-      setTimeout(() => {
-        setLoading(false);
-      }, 5000);
-    } catch (e) {
-      console.error(e);
-    }
-    return clearTimeout();
-  }, []);
+  // useEffect(() => {
+  //   try {
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 5000);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  //   return clearTimeout();
+  // }, []);
 
   return (
     <div className={styles.table_container}>
       <table
-        className={`table table-hover ${
-          theme === "dark" && "table-dark"
-        } table-striped ${styles.table_st} ${styles.table_background}`}
+        className={`table table-hover ${theme === "dark" && "table-dark"
+          } table-striped ${styles.table_st} ${styles.table_background}`}
         dir="rtl"
       >
         <thead>
@@ -79,7 +98,7 @@ export function Table() {
               </th>
             </tr>
           ) : (
-            filteredClients.map((client, index) => {
+            users.map((client, index) => {
               return client.id === editedClient ? (
                 <TableRowWithInputs
                   key={`${index}_edited`}

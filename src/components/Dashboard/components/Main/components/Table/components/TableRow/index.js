@@ -49,9 +49,9 @@ export function TableRow({ client, index, setEditedData, setEditedClient }) {
     <>
       <tr>
         <th scope="col">{index + 1}</th>
-        <th scope="col">{client.firstName}</th>
-        <th scope="col">{client.lastName}</th>
-        <th scope="col">{client.birthdate}</th>
+        <th scope="col">{client.name}</th>
+        <th scope="col">{client.family}</th>
+        <th scope="col">{client.birthday}</th>
         <th scope="col">{client.age}</th>
         <th scope="col">{client.height}</th>
         <th scope="col">{client.location}</th>

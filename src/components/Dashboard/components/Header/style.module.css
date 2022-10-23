@@ -21,6 +21,7 @@
   margin: 0 15px 0 0;
   position: relative;
 }
+
 .sidebar_header_style h4::after {
   content: "خوش آمدید";
   position: absolute;
@@ -39,10 +40,13 @@
   color: white !important;
 }
 
+.responsive_style {
+  width: 20%;
+}
 
 
 @media screen and (max-width:1025px) {
-  .responsive_style{
+  .responsive_style {
     display: none;
   }
 }

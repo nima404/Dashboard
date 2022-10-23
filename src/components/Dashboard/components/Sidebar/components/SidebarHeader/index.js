@@ -3,8 +3,9 @@ import sidebarlogo from "../../../../../../assets/dashboard-layout.png"
 
 export const SidebarHeader = () => {
     return (
-        <div className={styles.sidebarLogo_parent}>
-            <img src={sidebarlogo} className={styles.sidebar_logo} />
+        <div className={styles.sidebar_logo}>
+            {/* <img src={sidebarlogo} className={styles.sidebar_logo} /> */}
+            <i className={`bi bi-people ${styles.icon_fs}`}></i>
         </div>
     )
 }
