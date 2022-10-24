@@ -3,6 +3,10 @@ import { initialState } from "./clients.initial";
 
 export function clientReducer(state = initialState, action) {
   switch (action.type) {
+    case actionTypes.SET_CLIENTS:
+      console.log(action.payload);
+      return { ...state, clients: action.payload };
+
     case actionTypes.ADD_CLIENT: {
       const clientsLen = state.clients.length;
       const lastId = clientsLen > 0 ? state.clients[clientsLen - 1].id + 1 : 1;

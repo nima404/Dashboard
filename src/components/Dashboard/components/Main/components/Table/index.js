@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TableRowWithInputs } from "./components/TableRowWithInputs";
 import styles from "./table.module.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,40 +7,47 @@ import "react-toastify/dist/ReactToastify.css";
 import { TableRow } from "./components/TableRow";
 import { ThemeContext } from "../../../../../../context/themeContext";
 import { Loading } from "../../../Loading";
+import { useFetch } from "../../../../../../hooks/useFetch/useFetch";
+import { setClients } from "../../../../../../store/clients/clients.action";
 
 export function Table() {
   const { theme } = useContext(ThemeContext);
   const [editedClient, setEditedClient] = useState();
 
   const { clients, filteredClients } = useSelector((state) => state.client);
-
-  const [users, setUser] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const loadData = () => {
-    let mounted = true;
-    fetch("http://localhost:5000")
-      .then((result) => result.json())
-      .then((data) => {
-        console.log({ data });
-        if (!mounted) {
-          return;
-        }
-        setUser(data);
-        setLoading(false);
-      });
-    return () => {
-      mounted = false;
-      setLoading(false);
-    };
-  };
+  const dispatch = useDispatch();
+  // const [users, setUser] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  const { data, loading, error, getData } = useFetch();
+  // const loadData = () => {
+  //   let mounted = true;
+  //   fetch("http://localhost:5000")
+  //     .then((result) => result.json())
+  //     .then((data) => {
+  //       console.log({ data });
+  //       if (!mounted) {
+  //         return;
+  //       }
+  //       setUser(data);
+  //       setLoading(false);
+  //     });
+  //   return () => {
+  //     mounted = false;
+  //     setLoading(false);
+  //   };
+  // };
   const deletUser = (id) => {
-    fetch(`http://localhost:5000/${id}`, {
-      method: "DELETE",
-    }).then(() => loadData());
+    // fetch(`http://localhost:5000/${id}`, {
+    //   method: "DELETE",
+    // }).then(() => loadData());
   };
   useEffect(() => {
-    loadData();
+    async function a() {
+      await getData("http://localhost:5000");
+      dispatch(setClients(data));
+    }
+    a();
+    // setUser(data);
   }, []);
 
   const tableHeader = [
@@ -109,7 +116,7 @@ export function Table() {
               </th>
             </tr>
           ) : (
-            users.map((client, index) => {
+            clients.map((client, index) => {
               return client.id === editedClient ? (
                 <TableRowWithInputs
                   key={`${index}_edited`}
