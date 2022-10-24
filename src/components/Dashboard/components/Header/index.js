@@ -21,8 +21,8 @@ export const Header = () => {
         <Icon />
       </div>
 
-
       <ResponsiveMenu className={styles.ResponsivMenu} />
+      
     </header>
   );
 };

@@ -78,6 +78,7 @@ export function TableHeader() {
     let newFilteredList;
     if (searchText) {
       newFilteredList = fuse.search(searchText).map((node) => node.item);
+      console.log("newFilteredList: " ,newFilteredList);
     } else {
       newFilteredList = clients;
     }

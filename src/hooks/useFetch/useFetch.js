@@ -10,7 +10,6 @@ import {
 import { calculateAge } from "../../store/clients/clients.reducer";
 
 export const useFetch = () => {
-  // const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ export const useFetch = () => {
     axios
       .get(url)
       .then((response) => {
-        // setData(response.data);
         dispatch(setClients(response.data));
       })
       .catch((err) => {
@@ -34,7 +32,6 @@ export const useFetch = () => {
     axios
       .delete(`${url}/${id}`)
       .then((response) => {
-        // setData(response.data);
         dispatch(deleteClient(id));
       })
       .catch((err) => {
@@ -54,7 +51,6 @@ export const useFetch = () => {
       data: { ...body, age },
     })
       .then((response) => {
-        // setData(response.data);
         dispatch(addClient(response.data));
       })
       .catch((err) => {
@@ -73,7 +69,6 @@ export const useFetch = () => {
       data: { ...body, age },
     })
       .then((response) => {
-        // setData(response.data);
         dispatch(editClient(response.data));
       })
       .catch((err) => {

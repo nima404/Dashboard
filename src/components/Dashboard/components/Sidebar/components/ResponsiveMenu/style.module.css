@@ -15,6 +15,11 @@
   font-weight: bold;
 }
 
+.navbar_toggler_active:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 
 @media screen and (min-width:1025px) {
   .ResponsivMenu {

@@ -7,11 +7,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Loading } from "../../../../../Loading";
 import { useEffect, useState } from "react";
+import { useFetch } from "../../../../../../../../hooks/useFetch/useFetch";
 
 export function TableRow({
   client,
   index,
-  deletUser,
+  deleteData,
   setEditedData,
   setEditedClient,
 }) {
@@ -33,6 +34,7 @@ export function TableRow({
       theme: "light",
     });
 
+
   const showDeleteConfirm = (client) => {
     confirm({
       title: "آیا از حذف کاربر زیر مطمئن هستید؟",
@@ -42,11 +44,11 @@ export function TableRow({
       okType: "danger",
       cancelText: "انصراف",
       onOk() {
-        // dispatch(deleteClient(client.id));
-        deletUser(client.id);
+        deleteData(`http://localhost:5000`, client.id);
+        console.log(client.id);
         DeleteUserNotif();
       },
-      onCancel() {},
+      onCancel() { },
     });
   };
 
