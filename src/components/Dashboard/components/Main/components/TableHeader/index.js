@@ -6,33 +6,31 @@ import { useContext, useEffect, useState } from "react";
 import { FloatingLabelInput } from "../FloatingLabelInput";
 import { useDispatch, useSelector } from "react-redux";
 import Fuse from "fuse.js";
-import {
-  addClient,
-  setFiltered,
-} from "../../../../../../store/clients/clients.action";
+import { setFiltered } from "../../../../../../store/clients/clients.action";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ThemeContext } from "../../../../../../context/themeContext";
+import { useFetch } from "../../../../../../hooks/useFetch/useFetch";
 export function TableHeader() {
   const { theme } = useContext(ThemeContext);
   const initialNewClient = {
-    firstName: "",
-    lastName: "",
+    name: "",
+    family: "",
     age: "",
     height: "",
-    birthdate: "",
+    birthday: "",
     location: "",
   };
   const [newClient, setNewClient] = useState(initialNewClient);
   const clients = useSelector((state) => state.client.clients);
-
+  const { addData } = useFetch();
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const floatInputData = [
-    { label: "نام", type: "text", item: "firstName", required: true },
-    { label: "نام خانوادگی", type: "text", item: "lastName", required: true },
+    { label: "نام", type: "text", item: "name", required: true },
+    { label: "نام خانوادگی", type: "text", item: "family", required: true },
     { label: "قد", type: "number", item: "height" },
-    { label: "تاریخ تولد", type: "date", item: "birthdate" },
+    { label: "تاریخ تولد", type: "date", item: "birthday" },
     { label: "محل سکونت", type: "text", item: "location" },
   ];
   const [searchText, setSearchText] = useState("");
@@ -40,7 +38,7 @@ export function TableHeader() {
   const filterOptions = {
     isCaseSensitive: false,
     includeMatches: true,
-    keys: ["firstName", "lastName", "location"],
+    keys: ["name", "family", "location"],
   };
 
   const fuse = new Fuse(clients, filterOptions);
@@ -58,7 +56,8 @@ export function TableHeader() {
       (data) => data.required && newClient[data.item] === ""
     );
     if (emptyRequired === undefined) {
-      dispatch(addClient(newClient));
+      // dispatch(addClient(newClient));
+      addData("http://localhost:5000", newClient);
       setNewClient(initialNewClient);
       setIsModalOpen(false);
       AddUser();
@@ -69,7 +68,6 @@ export function TableHeader() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  console.log(newClient);
   const handleOnChangeInputs = (property) => {
     setNewClient((prev) => {
       return { ...prev, ...property };

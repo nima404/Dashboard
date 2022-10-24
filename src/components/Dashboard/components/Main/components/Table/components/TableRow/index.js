@@ -16,14 +16,12 @@ export function TableRow({
   setEditedClient,
 }) {
   const { confirm } = Modal;
-  const dispatch = useDispatch();
   function handleEditeClient(client) {
     setEditedClient(client.id);
     setEditedData(client);
   }
 
-  console.log("client: ", client);
-  const DeleteUser = (id) =>
+  const DeleteUserNotif = () =>
     toast.success("کاربر با موفقیت حذف شد", {
       position: "bottom-left",
       autoClose: 5000,
@@ -39,14 +37,14 @@ export function TableRow({
     confirm({
       title: "آیا از حذف کاربر زیر مطمئن هستید؟",
       icon: <ExclamationCircleOutlined />,
-      content: `${client.firstName} ${client.lastName}`,
+      content: `${client.name} ${client.family}`,
       okText: "حذف",
       okType: "danger",
       cancelText: "انصراف",
       onOk() {
         // dispatch(deleteClient(client.id));
         deletUser(client.id);
-        DeleteUser();
+        DeleteUserNotif();
       },
       onCancel() {},
     });

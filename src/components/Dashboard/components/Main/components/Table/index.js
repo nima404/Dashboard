@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { TableRowWithInputs } from "./components/TableRowWithInputs";
 import styles from "./table.module.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,48 +8,19 @@ import { TableRow } from "./components/TableRow";
 import { ThemeContext } from "../../../../../../context/themeContext";
 import { Loading } from "../../../Loading";
 import { useFetch } from "../../../../../../hooks/useFetch/useFetch";
-import { setClients } from "../../../../../../store/clients/clients.action";
 
 export function Table() {
   const { theme } = useContext(ThemeContext);
   const [editedClient, setEditedClient] = useState();
 
   const { clients, filteredClients } = useSelector((state) => state.client);
-  const dispatch = useDispatch();
-  // const [users, setUser] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  const { data, loading, error, getData } = useFetch();
-  // const loadData = () => {
-  //   let mounted = true;
-  //   fetch("http://localhost:5000")
-  //     .then((result) => result.json())
-  //     .then((data) => {
-  //       console.log({ data });
-  //       if (!mounted) {
-  //         return;
-  //       }
-  //       setUser(data);
-  //       setLoading(false);
-  //     });
-  //   return () => {
-  //     mounted = false;
-  //     setLoading(false);
-  //   };
-  // };
+  const { loading, getData, deleteData } = useFetch();
   const deletUser = (id) => {
-    // fetch(`http://localhost:5000/${id}`, {
-    //   method: "DELETE",
-    // }).then(() => loadData());
+    deleteData("http://localhost:5000", id);
   };
   useEffect(() => {
-    async function a() {
-      await getData("http://localhost:5000");
-      dispatch(setClients(data));
-    }
-    a();
-    // setUser(data);
+    getData("http://localhost:5000");
   }, []);
-
   const tableHeader = [
     "#",
     "نام",
@@ -61,27 +32,14 @@ export function Table() {
     "عملیات",
   ];
   const initialEditedClient = {
-    firstName: "",
-    lastName: "",
-    birthdate: "",
+    name: "",
+    family: "",
+    birthday: "",
     age: "",
     height: "",
     location: "",
   };
-
   const [editedData, setEditedData] = useState(initialEditedClient);
-
-  // const loading=()=>{}
-  // useEffect(() => {
-  //   try {
-  //     const load=setTimeout(() => {
-  //       setLoading(false);
-  //     }, 5000);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  //   return clearTimeout(load);
-  // }, []);
 
   return (
     <div className={styles.table_container}>

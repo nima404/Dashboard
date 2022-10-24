@@ -2,13 +2,14 @@ import { useDispatch } from "react-redux";
 import { editClient } from "../../../../../../../../store/clients/clients.action";
 import { ButtonIcon } from "../ButtonIcon";
 import { EditInput } from "../EditInput";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useFetch } from "../../../../../../../../hooks/useFetch/useFetch";
 
 export function TableRowWithInputs({ edited, setEditedClient, index }) {
   const { editedData, setEditedData } = edited;
   const dispatch = useDispatch();
-
+  const { updateData } = useFetch();
   const EditUser = () =>
     toast.success("ویرایش با موفقیت انجام شد", {
       position: "bottom-left",
@@ -22,15 +23,16 @@ export function TableRowWithInputs({ edited, setEditedClient, index }) {
     });
 
   const rowItems = [
-    { name: "firstName", type: "text" },
-    { name: "lastName", type: "text" },
-    { name: "birthdate", type: "date" },
+    { name: "name", type: "text" },
+    { name: "family", type: "text" },
+    { name: "birthday", type: "date" },
     { name: "age", type: "number" },
     { name: "height", type: "number" },
     { name: "location", type: "text" },
   ];
   function handleSubmitEdite() {
-    dispatch(editClient(editedData));
+    // dispatch(editClient(editedData));
+    updateData("http://localhost:5000", editedData.id, editedData);
     setEditedClient();
     EditUser();
   }

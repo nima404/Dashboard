@@ -4,14 +4,17 @@ import { initialState } from "./clients.initial";
 export function clientReducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.SET_CLIENTS:
-      console.log(action.payload);
-      return { ...state, clients: action.payload };
+      return {
+        ...state,
+        clients: action.payload,
+        filteredClients: action.payload,
+      };
 
     case actionTypes.ADD_CLIENT: {
-      const clientsLen = state.clients.length;
-      const lastId = clientsLen > 0 ? state.clients[clientsLen - 1].id + 1 : 1;
-      const age = calculateAge(action.payload.birthdate);
-      const newclient = { ...action.payload, age, id: lastId };
+      // const clientsLen = state.clients.length;
+      // const lastId = clientsLen > 0 ? state.clients[clientsLen - 1].id + 1 : 1;
+      // const age = calculateAge(action.payload.birthday);
+      const newclient = { ...action.payload };
       return {
         clients: [...state.clients, newclient],
         filteredClients: [...state.clients, newclient],
@@ -31,11 +34,11 @@ export function clientReducer(state = initialState, action) {
         (item) => item.id === action.payload.id
       );
 
-      const age = calculateAge(action.payload.birthdate);
+      // const age = calculateAge(action.payload.birthday);
 
       const clientsList = [...state.clients];
 
-      clientsList[clientIndex] = { ...action.payload, age };
+      clientsList[clientIndex] = { ...action.payload };
 
       return { clients: clientsList, filteredClients: clientsList };
     }
@@ -46,9 +49,9 @@ export function clientReducer(state = initialState, action) {
       return state;
   }
 }
-function calculateAge(birthdate) {
+export function calculateAge(birthday) {
   const nowDate = new Date();
-  const birthdateTime = new Date(birthdate);
+  const birthdateTime = new Date(birthday);
   const difference = nowDate - birthdateTime;
   const age = Math.floor(difference / (1000 * 60 * 60 * 24 * 365)) || "";
   return age;
